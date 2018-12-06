@@ -1,0 +1,570 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Resolve conflicts · Git Quest</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jérémy Bardon">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-asciidoc-admonition-icons/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../asciidoctor.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="rewrite-history.html" />
+    
+    
+    <link rel="prev" href="explore-project.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TODO.html">
+            
+                <a href="../TODO.html">
+            
+                    
+                    Todo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Articles</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    Why do you need Git?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="simple-workflow.html">
+            
+                <a href="simple-workflow.html">
+            
+                    
+                    Two beginner workflows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="explore-project.html">
+            
+                <a href="explore-project.html">
+            
+                    
+                    Explore your repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.4" data-path="resolve-conflicts.html">
+            
+                <a href="resolve-conflicts.html">
+            
+                    
+                    Resolve conflicts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="rewrite-history.html">
+            
+                <a href="rewrite-history.html">
+            
+                    
+                    Rewrite history
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="team-work.html">
+            
+                <a href="team-work.html">
+            
+                    
+                    Team work
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Quests</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../quests/quest1/quest1.main.html">
+            
+                <a href="../quests/quest1/quest1.main.html">
+            
+                    
+                    Add, commit and push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../quests/quest2/quest2.main.html">
+            
+                <a href="../quests/quest2/quest2.main.html">
+            
+                    
+                    Play with staging area
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../quests/quest3/quest3.main.html">
+            
+                <a href="../quests/quest3/quest3.main.html">
+            
+                    
+                    Search the mysterious message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../others/quests-help.html">
+            
+                <a href="../others/quests-help.html">
+            
+                    
+                    Get help for your Quest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../quests/quest1/quest1.help.html">
+            
+                <a href="../quests/quest1/quest1.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../quests/quest2/quest2.help.html">
+            
+                <a href="../quests/quest2/quest2.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../quests/quest3/quest3.help.html">
+            
+                <a href="../quests/quest3/quest3.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Resolve conflicts</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="resolve-conflicts-with-your&#xA0;team">Resolve conflicts with your&#xA0;team</h1>
+<div class="paragraph">
+<p>We talked about how git is great because it allows to share the very last version of the codebase with your team.
+This was all thank&#x2019;s to the <code>git push</code> command which sends your local commits to the server.</p>
+</div>
+<div class="paragraph">
+<p>It&#x2019;s time to learn how to keep your local repository up-to-date with the remote.
+Actually, it&#x2019;s recommended but also necessary if you want to push but don&#x2019;t have the last commits.
+The opposite of push is pull.</p>
+</div>
+<div class="paragraph">
+<p>Run a <code>git status</code> to know if you&#x2019;re up-to-date with the remote.
+Our local branch (more on that later) is master.
+The local copy of the remote branch to retrieve updates is named origin/master.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git status
+On branch dev
+Your branch is up-to-date with &apos;origin/dev&apos;.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It says you have the very last version but it&#x2019;s not necessary right.
+To make sure you&#x2019;re up-to-date, you have to pull before.
+This will retrieve the last version of master and copy it into origin/master.
+Finally, git will try to merge master and origin/master.
+That&#x2019;s why you can get conflicts here.</p>
+</div>
+<div class="paragraph">
+<p>From this point you may be in three situations:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No local commits nor modified files = No troubles</p>
+</li>
+<li>
+<p>No local commits but modified files = Not a big deal</p>
+</li>
+<li>
+<p>Local commits (not pushed) = Keep calm and carry on</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you didn&#x2019;t commit or modified files (without commit) since your last push, you&#x2019;re safe, no conflicts ahead.
+But you may have modified files, don&#x2019;t want to commit but still want to be up-to-date.
+This is easy to do with the <code>stash</code> command.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git stash
+$ git pull
+$ git stash pop</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no magic here. Behind the hood, git makes an hidden commit of all the modified files.
+With <code>stash pop</code>, it recovers the changes from this hidden commit and delete it as nothing happened.
+Except you&#x2019;re know up-to-date with the remote and keep your modified files.</p>
+</div>
+<div class="paragraph">
+<p>Now comes the worst and most common scenario.
+You have local commits and there are conflicts with the remote new commits.
+The bad news is you may get more conflicts as the difference in commits between the local and the remote increases.
+To avoid this, pull regularly for updates.</p>
+</div>
+<div class="paragraph">
+<p>Git has two commits, the local and the remote commit but can&#x2019;t merge the two.
+It&#x2019;s solution is to ask you to resolve the conflict manually.
+Check the repository status and you&#x2019;ll see unmerged files in a specific part.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="todo.jpg" alt="git status with unmerged files"></span></p>
+</div>
+<div class="paragraph">
+<p>That&#x2019;s not recommended to resolve conflicts by editing the files.
+Conflicts in files are not very user friendly and its long to solve.
+You may prefer to use a specific tool or your IDE.
+If your IDE don&#x2019;t offer this kind of feature you can use the link:http://meldmerge.org/[open source and multi-platform Meld}.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="todo.jpg" alt="Exemple d&#x2019;un conflit avec le marge avec trois versions"></span></p>
+</div>
+<div class="paragraph">
+<p>This is what a conflict looks like.
+Three different versions of the same file.
+Usually, the middle version is the final one which will be keeped.
+Yet, it&#x2019;s always hard to figure out if your version is on right of left.
+I have no advice about this, try to look at the changes and see if its yours or not.
+Then you&#x2019;ll be able to tell which one is your version and which one is the remote version.</p>
+</div>
+<div class="paragraph">
+<p>Usually, the remote changes are right because it was pushed before.
+My precious pieces of advice is to copy/paste the remote version in the middle.
+It means, the final file will be the remote one and you only have to merge two files instead of three.</p>
+</div>
+<div class="paragraph">
+<p>To flag the files with conflicts as resolved, you must make add them to the stagging area and commit.
+There two ways Git can handle this special merge commit depending on the pull strategy: <strong>rebase</strong> or <strong>merge</strong>.</p>
+</div>
+<div class="paragraph">
+<p>By default the pull strategy is set to merge but you can switch if you add the <code>--rebase</code> option.
+With the merge strategy you&#x2019;ll get a merge commit containing your updates which solves the conflict.
+If you choose rebase, your local commit will be updated with the updates.
+Rebase is an automatic task which tries to apply your commit on the top, you must use <code>rebase --continue</code> to keep going after a conflict.
+The later is the better in you ask me.
+On another hand, merge commits helps to locate commits which corrects conflicts.
+This is useful if you made a bad merge and remove a bit of your colleague code.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="todo.jpg" alt="image merge vs rebase"></span></p>
+</div>
+<div class="paragraph">
+<p>You can also handle merges with a tool such as Meld and flag the files as resolved automatically.
+This can done by defining a <a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools" target="_blank">mergetool in your git configuration</a>.
+When a conflict occurs, type <code>git mergetool</code> to make git use your software to review the files.
+After each files, it&#x2019;ll ask if you confirm the merge or not.</p>
+</div>
+<div class="paragraph">
+<p>Do you know cherry-pick?
+It&#x2019;s a handy command which allows to pick any commit and put it on top of your branch.
+Conflicts can also occurs with cherry-picks but it works the exact same way as rebase.
+When you encounter a conflict, fix it and call <code>cherry-pick --continue</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git cherry-pick COMMIT_SHA1</pre>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="explore-project.html" class="navigation navigation-prev " aria-label="Previous page: Explore your repository">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="rewrite-history.html" class="navigation navigation-next " aria-label="Next page: Rewrite history">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Resolve conflicts","level":"2.4","depth":1,"next":{"title":"Rewrite history","level":"2.5","depth":1,"path":"articles/rewrite-history.adoc","ref":"articles/rewrite-history.adoc","articles":[]},"previous":{"title":"Explore your repository","level":"2.3","depth":1,"path":"articles/explore-project.adoc","ref":"articles/explore-project.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"articles/resolve-conflicts.adoc","mtime":"2019-01-03T17:18:19.130Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-04T16:27:19.953Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

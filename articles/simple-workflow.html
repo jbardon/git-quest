@@ -1,0 +1,657 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Two beginner workflows · Git Quest</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jérémy Bardon">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-asciidoc-admonition-icons/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../asciidoctor.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="explore-project.html" />
+    
+    
+    <link rel="prev" href="intro.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../TODO.html">
+            
+                <a href="../TODO.html">
+            
+                    
+                    Todo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Articles</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="intro.html">
+            
+                <a href="intro.html">
+            
+                    
+                    Why do you need Git?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.2" data-path="simple-workflow.html">
+            
+                <a href="simple-workflow.html">
+            
+                    
+                    Two beginner workflows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="explore-project.html">
+            
+                <a href="explore-project.html">
+            
+                    
+                    Explore your repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="resolve-conflicts.html">
+            
+                <a href="resolve-conflicts.html">
+            
+                    
+                    Resolve conflicts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="rewrite-history.html">
+            
+                <a href="rewrite-history.html">
+            
+                    
+                    Rewrite history
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="team-work.html">
+            
+                <a href="team-work.html">
+            
+                    
+                    Team work
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Quests</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../quests/quest1/quest1.main.html">
+            
+                <a href="../quests/quest1/quest1.main.html">
+            
+                    
+                    Add, commit and push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../quests/quest2/quest2.main.html">
+            
+                <a href="../quests/quest2/quest2.main.html">
+            
+                    
+                    Play with staging area
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../quests/quest3/quest3.main.html">
+            
+                <a href="../quests/quest3/quest3.main.html">
+            
+                    
+                    Search the mysterious message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../others/quests-help.html">
+            
+                <a href="../others/quests-help.html">
+            
+                    
+                    Get help for your Quest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../quests/quest1/quest1.help.html">
+            
+                <a href="../quests/quest1/quest1.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../quests/quest2/quest2.help.html">
+            
+                <a href="../quests/quest2/quest2.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../quests/quest3/quest3.help.html">
+            
+                <a href="../quests/quest3/quest3.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Two beginner workflows</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="simple-workflow-for-solo-developers">Simple workflow for solo developers</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>Using git in your project is simple.
+If you already manage you codebase with git, run a <code>git clone</code> to retrieve it.
+Otherwise you can turn a regular project into a git repository with <code>git init</code>.</p>
+</div>
+<div class="paragraph">
+<p>In both cases, you&#x2019;ll find a&#xA0;<code>.git</code> folder in the project root.
+This is the only location where git puts its information about the project versions.
+Don&#x2019;t touch it, it&#x2019;s not yours!</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ ls -a
+./  ../  .git/  react.txt  vue.txt
+
+# This is a git repository
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+# Not a git repository
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Another way to check a directory belongs to a git repository is to run <code>git status</code>.
+It gives details about the repository.
+But not work outside of a git repository.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_add_commit_push">Add, commit &amp;&#xA0;push</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Now you have a git repository, we can begin to go though the basic git workflow.
+In this context, you can still loose your work by doing anything but you won&#x2019;t have to deal with conflicts.</p>
+</div>
+<div class="paragraph">
+<p>Yes, conflicts are tiresome but only happens when you and a felow developer update the same piece of code.
+This workflow is basically what you might remember if you learned with pratice.</p>
+</div>
+<div class="quoteblock">
+<blockquote>
+<div class="paragraph">
+<p>ADD some modified files, COMMIT your changes and PUSH your commit to share&#xA0;it</p>
+</div>
+</blockquote>
+</div>
+<div class="paragraph">
+<p>Here the translation into git commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git add file.txt
+$ git commit -m &apos;Add new file&apos; # The message is required
+$ git push</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>First, we&#x2019;ll focus on add and commit.
+Git base unit are commits.
+Its job is to manage commits.
+They contains modifications between each version of the codebase.</p>
+</div>
+<div class="paragraph">
+<p>Each commit contains a message which describes it.
+You don&#x2019;t need to make it long but be careful about its content.
+Look at guidelines from Pro Git, it seems a bit too much but still interessting to read.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git commit -m &apos;Write React and Vue introduction&apos;
+On branch master
+Changes not staged for commit:
+        modified:   react.txt
+        modified:   vue.txt
+
+no changes added to commit</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In this example, there are modification on <code>react.txt</code> and <code>vue.txt</code>.
+But, you can&#x2019;t commit there are <code>no changes added to commit</code>.
+Well, Git is smart and tries to help you with meaningful feedback.
+It&#x2019;ll not assume you want to commit all changes.
+You must select which modified file you want to put in your commit.</p>
+</div>
+<div class="paragraph">
+<p>That&#x2019;s what <strong>add</strong> is made for.
+Its purpose is to add files in the <strong>staging area</strong>.
+When you ask for a commit, git will only include staged files.
+Other modified files are also in your working directory but won&#x2019;t be considered.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git add react.txt
+$ git status
+On branch master
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+        modified:   react.txt
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   vue.txt
+$ git commit -m &apos;Write React introduction&apos;
+[master 8342ba8] Write React introduction
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+        modified:   vue.txt
+
+no changes added to commit (use &quot;git add&quot; and/or &quot;git commit -a&quot;)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>On of the most useful command is <code>git status</code>.
+It tells clearly which files are modified and if they&#x2019;re staged for commit.
+The green part is the staged area.</p>
+</div>
+<div class="paragraph">
+<p>Indeed a file can be in three states: modified, staged or committed.
+I think you can now understand the following diagram from Pro Git.</p>
+</div>
+<div class="paragraph">
+<div class="title">Diagram from Pro Git book &#x200A;- <a href="https://git-scm.com/book/en/v2/Getting-Started-Git-Basics#_the_three_states" target="_blank">&#x200A;The Three States</a></div>
+<p><span class="image"><img src="img/areas.png" alt="areas.png"></span></p>
+</div>
+<div class="paragraph">
+<p>As explained before, git records everything in the&#xA0;<code>.git</code> directory.
+It manages commit so only committed files are in this directory.
+Current modifications from the working directory and the stagging area aren&#x2019;t there.
+After a commit the staging area will be empty.
+Your working directory is also clean (no modifications) if you added all modified files to the staging area before.</p>
+</div>
+<div class="paragraph">
+<p>I forgot to tell you about <code>git push</code>.
+Git manage codebase versions but also helps synchronise the last version with your colleagues.
+The repository is usually hosted on a git server.
+When you push, your new commits are send to the server.
+Your colleagues will be able to get the last version.</p>
+</div>
+<div class="paragraph">
+<p>Here a last thought about files changes.
+You can have files in your directory git don&#x2019;t know about, they&#x2019;re <strong>untracked</strong>.
+It happens when you create a new file in your codebase.
+A simple <code>git</code> add will tell git to track it.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="img/lifecycle.png" alt="lifecycle.png">
+</div>
+<div class="title">Figure 1. Diagram from Pro Git book&#x200A; - <a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository" target="_blank">Recording Changes to the Repository</a></div>
+</div>
+<div class="paragraph">
+<p>Files in git can be in four states.
+By default every known (or tracked) file is <strong>unmodified</strong>.
+You can see the file states with <code>git status</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>$ git status
+On branch master
+Your branch is up to date with &apos;origin/master&apos;.
+
+Changes to be committed:
+  (use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)
+
+	modified:   index.js
+
+Changes not staged for commit:
+  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)
+  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)
+
+	modified:   letters.js
+
+Untracked files:
+  (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)
+
+	colors.js</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This command is pretty verbose but comes with many details.
+They are a maximum of three sections corresponding to three file states:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Changes to be committed (Staged)</p>
+</li>
+<li>
+<p>Changes not staged for commit (Modified)</p>
+</li>
+<li>
+<p>Untracked files (Untracked)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>You can&#x2019;t see <strong>Unmodified</strong> files because it&#x2019;s not relevant, what&#x2019;s important are modifications, the rest is already saved in git.
+Still, it&#x2019;s possible to display a list of all tracked files using <code>git ls-files</code> .
+The output will include all files not in the untracked part.</p>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="intro.html" class="navigation navigation-prev " aria-label="Previous page: Why do you need Git?">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="explore-project.html" class="navigation navigation-next " aria-label="Next page: Explore your repository">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Two beginner workflows","level":"2.2","depth":1,"next":{"title":"Explore your repository","level":"2.3","depth":1,"path":"articles/explore-project.adoc","ref":"articles/explore-project.adoc","articles":[]},"previous":{"title":"Why do you need Git?","level":"2.1","depth":1,"path":"articles/intro.adoc","ref":"articles/intro.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"articles/simple-workflow.adoc","mtime":"2019-01-03T17:18:19.160Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-04T16:27:19.953Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

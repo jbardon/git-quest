@@ -1,0 +1,611 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Add, commit and push · Git Quest</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="Jérémy Bardon">
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-asciidoc-admonition-icons/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../asciidoctor.css">
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../quest2/quest2.main.html" />
+    
+    
+    <link rel="prev" href="../../articles/team-work.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../TODO.html">
+            
+                <a href="../../TODO.html">
+            
+                    
+                    Todo
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Articles</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../../articles/intro.html">
+            
+                <a href="../../articles/intro.html">
+            
+                    
+                    Why do you need Git?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../../articles/simple-workflow.html">
+            
+                <a href="../../articles/simple-workflow.html">
+            
+                    
+                    Two beginner workflows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" data-path="../../articles/explore-project.html">
+            
+                <a href="../../articles/explore-project.html">
+            
+                    
+                    Explore your repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" data-path="../../articles/resolve-conflicts.html">
+            
+                <a href="../../articles/resolve-conflicts.html">
+            
+                    
+                    Resolve conflicts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.5" data-path="../../articles/rewrite-history.html">
+            
+                <a href="../../articles/rewrite-history.html">
+            
+                    
+                    Rewrite history
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.6" data-path="../../articles/team-work.html">
+            
+                <a href="../../articles/team-work.html">
+            
+                    
+                    Team work
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Quests</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="quest1.main.html">
+            
+                <a href="quest1.main.html">
+            
+                    
+                    Add, commit and push
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../quest2/quest2.main.html">
+            
+                <a href="../quest2/quest2.main.html">
+            
+                    
+                    Play with staging area
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="../quest3/quest3.main.html">
+            
+                <a href="../quest3/quest3.main.html">
+            
+                    
+                    Search the mysterious message
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Help</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../../others/quests-help.html">
+            
+                <a href="../../others/quests-help.html">
+            
+                    
+                    Get help for your Quest
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="quest1.help.html">
+            
+                <a href="quest1.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../quest2/quest2.help.html">
+            
+                <a href="../quest2/quest2.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../quest3/quest3.help.html">
+            
+                <a href="../quest3/quest3.help.html">
+            
+                    
+                    Help
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Add, commit and push</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="quest-1---add-commit-and-push">Quest #1 - Add, commit and push</h1>
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This quest belongs to the <a href="../../articles/simple-workflow.html">Simple Workflow</a> part.
+It means you will learn the basic usage of Git.
+Don&#x2019;t hesitate to read the article introducing concepts for this part.</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">In this quest, you&#x2019;ll learn to:</div>
+<div class="ulist">
+<ul>
+<li>
+<p>put all modified files in the staging area</p>
+</li>
+<li>
+<p>create a new version with modified files</p>
+</li>
+<li>
+<p>send your commit to the server</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Here are the instructions for your quest, read them carefully. The weapon section helps you to figure out which commands you&#x2019;ll need to complete this quest.</p>
+</div>
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+Problem
+</td>
+<td class="hdlist2">
+<p>You modified <code>index.js</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Mission
+</td>
+<td class="hdlist2">
+<p>Commit and push all changes to the server</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Weapons
+</td>
+<td class="hdlist2">
+<p><code>add</code> <code>commit</code> <code>push</code></p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+Workspace
+</td>
+<td class="hdlist2">
+<p><strong><code>~/git-quest/quest1/git-quest1</code></strong></p>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>If you&#x2019;re already confident with <code>add</code>, <code>commit</code> and <code>push</code> you can still read the <a href="quest1.help.html#_short_answer">Short answer</a> to understand this quest intent.</p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<div class="fa icon-caution" title="Caution">&#xF06D;</div>
+</td>
+<td class="content">
+Remember you don&#x2019;t need to edit the project files.
+If you&#x2019;re in trouble, reset this quest with <code>git-quest init 1</code>.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_before_you_start">Before you start</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Run <code>git-quest init 1</code> to setup your environment for this quest.
+To ensure you can begin your quest in good conditions, go to the quest repository: <code>~/git-quest/quest1/git-quest1</code>.</p>
+</div>
+<div class="paragraph">
+<p>And run the two following commands to make sure both project and repository are in the right state.</p>
+</div>
+<div class="listingblock">
+<div class="title">Repository status</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ git status
+On branch master
+Your branch is up-to-date with <span class="hljs-string">&apos;origin/master&apos;</span>.
+Changes not staged <span class="hljs-keyword">for</span> commit:
+  (use <span class="hljs-string">&quot;git add &lt;file&gt;...&quot;</span> to update what will be committed)
+  (use <span class="hljs-string">&quot;git checkout -- &lt;file&gt;...&quot;</span> to discard changes <span class="hljs-keyword">in</span> working directory)
+
+        modified:   index.js
+
+no changes added to commit (use <span class="hljs-string">&quot;git add&quot;</span> and/or <span class="hljs-string">&quot;git commit -a&quot;</span>)</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="fa icon-note" title="Note">&#xF05A;</div>
+</td>
+<td class="content">
+Didn&#x2019;t get same results ? Reset the quest by running  <code>git-quest init 1</code> again
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>From here, if you&#x2019;re familiar with git, go ahead and try to complete your quest on your own. Besides, for apprentices, I&#x2019;ld recommand to follow the <a href="quest1.help.html#_step_by_step_solution">step by step solution</a> first.
+Then, reset the quest and try to complete it without any help.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_check_your_result">Check your result</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Once you think you finished the quest, run the following command and check the output.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">$ git show --name-only
+commit a74355f413554c0334fe03fa5fd76b31247d5982 (HEAD -&gt; master, origin/master) (3)
+Author: jbardon &lt;bardonjeremy1@gmail.com&gt;
+Date:   Fri Dec 7 12:39:20 2018 +0100
+
+    Print the message <span class="hljs-keyword">in</span> ASCII art (1)
+
+index.js (2)
+(END)</code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<ol>
+<li>
+<p>Your commit message</p>
+</li>
+<li>
+<p>Files in the commit: only <code>index.js</code></p>
+</li>
+<li>
+<p>Commit location: local (HEAD &#x2192; master) and remote (HEAD &#x2192; origin/master)</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>If you can&#x2019;t see your commit, you must make your commit first.
+You miss something if you get an error or something different.</p>
+</div>
+<div class="paragraph">
+<p>If you completed this quest on your own, it&#x2019;s still relevant for you to read the <a href="quest1.help.html#_short_answer">Short answer</a>.
+You can compare your solution with mine.</p>
+</div>
+</div>
+</div>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../../articles/team-work.html" class="navigation navigation-prev " aria-label="Previous page: Team work">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../quest2/quest2.main.html" class="navigation navigation-next " aria-label="Next page: Play with staging area">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Add, commit and push","level":"3.1","depth":1,"next":{"title":"Play with staging area","level":"3.2","depth":1,"path":"quests/quest2/quest2.main.adoc","ref":"quests/quest2/quest2.main.adoc","articles":[]},"previous":{"title":"Team work","level":"2.6","depth":1,"path":"articles/team-work.adoc","ref":"articles/team-work.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"quests/quest1/quest1.main.adoc","mtime":"2019-01-03T17:18:19.950Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-04T16:27:19.953Z"},"basePath":"../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-collapsible-chapters/collapsible-chapters.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+
+    </body>
+</html>
+

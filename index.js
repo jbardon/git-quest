@@ -2,20 +2,18 @@ const program = require('commander');
 const log = require('loglevel');
 
 const setVersion = require('./command/version');
+
 const ListCommand = require('./command/list');
 const InitCommand = require('./command/init');
+const ReadCommand = require('./command/read');
+const HelpCommand = require('./command/help');
 
 // revoir avec ENV
 log.setLevel(log.levels.DEBUG);
 
 setVersion();
 
-/* implement:
-avec guess quest id sinon ask
-- read: open quest in browser
-- help: open help in browser
-*/
-const commands = [ListCommand, InitCommand];
+const commands = [ListCommand, InitCommand, ReadCommand, HelpCommand];
 commands.map(command => new command());
 
 program

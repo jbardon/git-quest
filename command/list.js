@@ -5,13 +5,12 @@ class ListCommand {
     constructor() {
         program
             .command('list')
-            .alias('l')
             .description('List available quests')
             .action(() => this.exec());
     }
 
     displayQuest(quest, id) {
-        console.log(`- ${id + 1}: ${quest}`);
+        console.log(`  - ${id + 1}: ${quest}`);
     }
 
     exec() {

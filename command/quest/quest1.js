@@ -3,16 +3,17 @@ const Quest = require('./abstract-quest');
 
 const QUEST_ID = 1;
 
-function Quest1(directory) {
+const Quest1 = {
+    init(directory) {
+        const quest = new Quest(QUEST_ID, directory);
+        quest.setup(initQuest);
 
-    const quest = new Quest(QUEST_ID, directory);
-    quest.setup(initQuest);
-
-    function initQuest(questDirectory) {
-        return git.cwd(questDirectory)
-            .exec(git.checkout('master'))
-            .exec(git.raw(['cherry-pick', `quest/src/${QUEST_ID}--end`, '--no-commit']))
-            .exec(git.reset('mixed'));
+        function initQuest(questDirectory) {
+            return git.cwd(questDirectory)
+                .exec(git.checkout('master'))
+                .exec(git.raw(['cherry-pick', `quest/src/${QUEST_ID}--end`, '--no-commit']))
+                .exec(git.reset('mixed'));
+        }
     }
 }
 

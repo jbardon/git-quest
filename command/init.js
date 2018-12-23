@@ -1,32 +1,27 @@
 const path = require('path');
 const program = require('commander');
-const quest1 = require('./quest/quest1');
+const QuestFactory = require('./quest/quest-factory');
 
 class InitCommand {
     constructor() {
+        const argumentsDescription = {
+            dir: 'Directory to setup the quest (Default: .)',
+            quest: 'Quest id (see "git-quest list")'
+        };
         program
-            .command('init [dir]')
-            .alias('i')
-            // in the given directory.\nThe quest id is required (use "git-quest list" to get the list).
-            .description('Begin a new quest (Default dir: .)')
-            .usage('[dir] -Q <quest-id>')
-            .option('-Q, --quest <id>', 'Quest id', parseInt)
-            .action((dir, cmd) => this.exec(cmd.quest, dir));
+            .command('init')
+            .arguments('<quest> [dir]')
+            .description('Begin a new quest', argumentsDescription)
+            .action((quest, directory) => this.exec(quest, directory));
     }
 
     exec(questId, directory) {
-        if (!questId) {
-            // Faire une liste et demander
-            console.log(program.help()); // à revoir pour aide spécifique à la commande
-        } else if (!directory) {
+        if (!directory) {
             directory = path.join(__dirname, '..');
         }
-
-        // Faire une factory de quêtes
         // Faire un interceptor git global
-        switch (questId) {
-            case 1: quest1(directory); break;
-        }
+        const quest = QuestFactory.get(questId);
+        quest.init(directory);
     }
 }
 

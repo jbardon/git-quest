@@ -69,10 +69,8 @@ class Quest {
         console.log(`Working directory: ${localRepoDir.blue}\n`);
 
         console.log('Quest notice:');
-
-        const questUrl = `https://jbardon.github.io/git-quest/simple-workflow/quest/quest${this.questId}/quest${this.questId}`;
-        console.log(`- Read your quest on ${`${questUrl}.main.html`.yellow}`);
-        console.log(`- If you're stuck, get help on ${`${questUrl}.help.html`.green}`);
+        console.log(`- Read your quest with "${'git-quest read'.yellow}"`);
+        console.log(`- If you're stuck, get help with "${'git-quest help'.green}"`);
     }
 
     setupGitInterceptor() {

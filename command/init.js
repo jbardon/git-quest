@@ -1,7 +1,6 @@
 const path = require('path');
 const program = require('commander');
 const quest1 = require('./quest/quest1');
-//const quest2 = require('./quest/quest2');
 
 class InitCommand {
     constructor() {
@@ -17,10 +16,14 @@ class InitCommand {
 
     exec(questId, directory) {
         if (!questId) {
+            // Faire une liste et demander
             console.log(program.help()); // à revoir pour aide spécifique à la commande
         } else if (!directory) {
             directory = path.join(__dirname, '..');
         }
+
+        // Faire une factory de quêtes
+        // Faire un interceptor git global
         switch (questId) {
             case 1: quest1(directory); break;
         }

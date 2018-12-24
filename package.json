@@ -1,6 +1,6 @@
 {
   "name": "git-quest",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Discover git or sharpen your skills through quests",
   "main": "index.js",
   "dependencies": {
@@ -12,10 +12,12 @@
     "shelljs": "^0.8.3",
     "simple-git": "^1.107.0"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "https://bitbucket.org/jeremy-lr/git-riddle"
+  },
+  "bin": {
+    "git-quest": "./bin/git-quest"
   },
   "author": "Jérémy Bardon",
   "homepage": "https://jbardon.github.io/git-quest"

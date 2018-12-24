@@ -1,5 +1,5 @@
 const program = require('commander');
-const CommandHelper = require('./command-helper');
+const CommandHelper = require('../helpers/command-helper');
 
 class HelpCommand {
     constructor() {
@@ -7,7 +7,7 @@ class HelpCommand {
             .command('help')
             .description('Show current quest help')
             .option('-q, --quest', 'Quest id (see "git-quest list)"', parseInt)
-            .action(quest => this.exec(quest));
+            .action(quest => this.exec(parseInt(quest)));
     }
 
     exec(questId) {

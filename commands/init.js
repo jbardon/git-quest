@@ -1,6 +1,6 @@
 const path = require('path');
 const program = require('commander');
-const QuestFactory = require('./quest/quest-factory');
+const QuestFactory = require('../helpers/quest-factory');
 
 class InitCommand {
     constructor() {

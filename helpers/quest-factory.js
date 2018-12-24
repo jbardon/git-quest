@@ -1,6 +1,6 @@
 const QuestFactory = {
     get(questId) {
-        return require(`./quest${questId}`);
+        return require(`../quests/quest${questId}`);
     }
 };
 

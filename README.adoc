@@ -1,0 +1,67 @@
+= Git Quest
+
+// Peut-être une liste des quêtes
+// 2 modes de jeu: novice ou challenger
+// MAJ script pour lien vers site
+// https://toolchain.gitbook.com/syntax/asciidoc.html
+
+Welcome to Git Quest!
+
+You probably know Git, this wonderful tool for versifying. Yet, you also realized the learning curve is very sharp.
+As a developer, you have to struggle with it every single day.
+This is the time for you to learn git for real.
+I designed many quests to help you to learn and sharpen your git skills.
+
+Thanks to Git Quest, no matters your level, you can follow quests which consist of solving problems using git commands.
+You'll learn by trying to resolve common issues with my help.
+When you get stuck on a quest, you can read the FAQ and also follow the step by step solution.
+
+Give it a try!
+
+'''
+
+== How to take quests
+Don't worry about your environment setup, everything is setup for you with scripts.
+Also you don't have to open and edit the project files. No need to understand JavaScript.
+
+CAUTION: You can solve all the quest without editing the files.
+This is the most important rule you need to respect.
+
+All quests are organized in the same way. This allow for people with various levels to enjoy the quest:
+
+Apprentice:: You don't know git and need a complete explaination with a step by step solution
+
+Knight:: You fight with git everyday and have a bit of experience. You want to pratice and complete the quest without help.
+
+Hero:: You're basically a god at git but want to check if you can learn something. You won't do the quest but read the problem and its solution.
+
+Depending on your level at git, you'll read the quest in a different order. 
+
+Yet you will always begin with the introduction. which expose what the quest is going to learn you. The repository situation is explained as weel as the job to do. The weapon section helps both knights and heroes to see which git command is required to complete the quest.
+
+[width="100%",options="header"]
+|===
+| Apprentice | Knight | Hero
+| Introduction | Introduction | Introduction
+| Before you start | Before you start | Short answer
+| Step by step solution | Check your results |
+| Check you results | Short answer |
+|===
+
+== Purpose project
+Playing with git assume you have some codebase to play with.
+I build a tiny project which displays a fancy message in the console.
+The message is made with colourful ASCI art and is also animated.
+
+// Gif du projet
+
+The project requires to install Node.js.
+Make sure you installed Node.js, try to run `node -v` in you console.
+If the current version doesn't appear https://nodejs.org/en/download/[download and install Node.js].
+
+For each quest, the entry point of the project is `index.js`.
+It means, you always run the project with `node index.js`.
+
+
+
+

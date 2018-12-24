@@ -1,19 +1,22 @@
 const program = require('commander');
 const log = require('loglevel');
 
-const setVersion = require('./command/version');
-
-const ListCommand = require('./command/list');
-const InitCommand = require('./command/init');
-const ReadCommand = require('./command/read');
-const HelpCommand = require('./command/help');
+const ListCommand = require('./commands/list');
+const VersionCommand = require('./commands/version');
+const InitCommand = require('./commands/init');
+const ReadCommand = require('./commands/read');
+const HelpCommand = require('./commands/help');
 
 // revoir avec ENV
 log.setLevel(log.levels.DEBUG);
 
-setVersion();
-
-const commands = [ListCommand, InitCommand, ReadCommand, HelpCommand];
+const commands = [
+    ListCommand,
+    VersionCommand,
+    InitCommand,
+    ReadCommand,
+    HelpCommand
+];
 commands.map(command => new command());
 
 program

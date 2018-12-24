@@ -1,5 +1,5 @@
 const program = require('commander');
-const CommandHelper = require('./command-helper');
+const CommandHelper = require('../helpers/command-helper');
 
 class ReadCommand {
     constructor() {
@@ -7,7 +7,7 @@ class ReadCommand {
             .command('read')
             .description('Read current quest instructions')
             .option('-q, --quest', 'Quest id (see "git-quest list)"', parseInt)
-            .action(quest => this.exec(quest));
+            .action(quest => this.exec(parseInt(quest)));
     }
 
     exec(questId) {

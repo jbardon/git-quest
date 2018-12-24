@@ -5,9 +5,8 @@ const quests = require('../data/quest.json');
 const CommandHelper = {
     getCurrentQuestId() {
         const currentDirectory = process.cwd();
-        let matchingNumber = currentDirectory.match(/quest-(\d+)/)
+        let matchingNumber = currentDirectory.match(/quest-(\d+)/);
         let questId = matchingNumber && matchingNumber[1];
-
         if (!questId) {
             console.log(`Can't guess your quest id from your current directory.\n   (use "git-quest list" if you don't know it)\n`);
 

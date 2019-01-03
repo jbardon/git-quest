@@ -1,9 +1,9 @@
 const git = require('simple-git')();
 const Quest = require('./abstract-quest');
 
-const QUEST_ID = 1;
+const QUEST_ID = 2;
 
-const Quest1 = {
+const Quest2 = {
     init(directory) {
         const quest = new Quest(QUEST_ID, directory);
         quest.setup(initQuest);
@@ -11,10 +11,9 @@ const Quest1 = {
         function initQuest(questDirectory) {
             return git.cwd(questDirectory)
                 .exec(git.checkout('master'))
-                .exec(git.raw(['cherry-pick', `quest/${QUEST_ID}--end`, '--no-commit']))
-                .exec(git.reset('mixed'));
+                .exec(git.raw(['cherry-pick', `quest/${QUEST_ID}--end`, '--no-commit']));
         }
     }
 }
 
-module.exports = Quest1;
+module.exports = Quest2;

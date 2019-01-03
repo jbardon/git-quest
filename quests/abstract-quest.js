@@ -49,7 +49,7 @@ class Quest {
         return git.cwd(this.questDirectory)
             .exec(git.clone(REPOSITORY, 'remote.git', '--bare'))
             .exec(git.cwd(path.join(this.questDirectory, 'remote.git')))
-            .exec(git.branch(['-m', `quest/src/${this.questId}`, 'master']));
+            .exec(git.branch(['-m', `quest/${this.questId}`, 'master']));
     }
 
     createQuestRepository() {

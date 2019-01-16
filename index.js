@@ -8,7 +8,7 @@ const ReadCommand = require('./commands/read');
 const HelpCommand = require('./commands/help');
 
 // revoir avec ENV
-log.setLevel(log.levels.DEBUG);
+log.setLevel(log.levels.INFO);
 
 const commands = [
     ListCommand,

@@ -1,6 +1,6 @@
 const path = require('path');
 const log = require('loglevel');
-const { cd, test, rm, mkdir } = require('shelljs');
+const { cd, test, rm, mkdir, pwd } = require('shelljs');
 const git = require('simple-git')();
 const colors = require('colors');
 
@@ -9,8 +9,7 @@ const REPOSITORY = 'https://bitbucket.org/jeremy-lr/git-riddle.git';
 class Quest {
     constructor(questId, directory) {
         this.questId = questId;
-        this.questDirectory = path.join(directory, `git-quest-${this.questId}`);
-
+        this.questDirectory = path.resolve(path.join(directory, `git-quest-${this.questId}`));
         this.setupGitInterceptor();
     }
 
@@ -24,7 +23,7 @@ class Quest {
             this.createQuestRepository().exec(() => {
                 log.debug('Prepare quest repository');
                 prepareQuestRepository(questRepositoryDirectory).exec(() => {
-                    cd(questRepositoryDirectory);
+                    // Can't exit node script in a specified path
                     this.displayInstructions();
                 })
             })
@@ -63,19 +62,19 @@ class Quest {
             console.clear();
         }
 
-        console.log(`Setup GitQuest #${this.questId}.....OK\n`);
+        log.info(`Setup GitQuest #${this.questId}.....OK\n`);
 
-        let localRepoDir = path.resolve(`${this.questDirectory}/quest${this.questId}`);
-        console.log(`Working directory: ${localRepoDir.blue}\n`);
+        let localRepoDir = path.join(this.questDirectory, `quest${this.questId}`);
+        log.info(`Working directory: ${localRepoDir.blue}\n`);
 
-        console.log('Quest notice:');
-        console.log(`- Read your quest with "${'git-quest read'.yellow}"`);
-        console.log(`- If you're stuck, get help with "${'git-quest help'.green}"`);
+        log.info('Quest notice:');
+        log.info(`- Read your quest with "${'git-quest read'.yellow}"`);
+        log.info(`- If you're stuck, get help with "${'git-quest help'.green}"`);
     }
 
     setupGitInterceptor() {
         git.outputHandler((command, stdout, stderr) => {
-            if (command) {
+            if (command && log.getLevel() < log.levels.INFO) {
                 log.debug(command)
             }
         });

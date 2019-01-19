@@ -1,0 +1,104 @@
+= Git Quest
+
+// Peut-être une liste des quêtes
+// 2 modes de jeu: novice ou challenger
+// MAJ script pour lien vers site
+// https://toolchain.gitbook.com/syntax/asciidoc.html
+
+Welcome to Git Quest!
+
+You probably know Git, this wonderful tool for versifying.
+Yet, you also realized the learning curve is very sharp.
+As a developer, you have to struggle with it every single day.
+This is the time for you to learn git for real.
+I designed many quests to help you to learn and sharpen your git skills.
+
+Thanks to Git Quest, no matters your level, you can follow quests which consist of solving problems using git commands.
+You'll learn by trying to resolve common issues with my help.
+When you get stuck on a quest, you can follow the step by step solution which includes many details.
+
+Give it a try!
+
+'''
+
+== How good are you at git?
+
+All quests are designed in the same way.
+Whatever you level, you can enjoy your quests as it fits your needs.
+Experienced persons can go straight to the point while newbies get tailored explainations. 
+
+Don't forget to read the articles.
+They introduce important Git concepts you need to master.
+
+Here the list of adventurers, try to pick the one which descibes you better.
+
+Apprentice:: You don't know git and need a complete explaination with a step by step solution
+
+Knight:: You fight with git everyday and have a bit of experience. You want to pratice and complete the quest without help.
+
+Hero:: You're basically a god at git but want to check if you can learn something. You won't do the quest but read the problem and its solution.
+
+This isn't a definitive choice.
+Only a frame to help you get the best out of each quest without losing your time.
+Depending on your level at git, you'll read the quest in a different order. 
+Most experienced adventurers can also skip some parts.
+
+[width="100%",options="header"]
+|===
+| Apprentice | Knight | Hero
+| Introduction | Introduction | Introduction
+| Before you start | Before you start | Short answer
+| Step by step solution | Check your results |
+| Check you results | Short answer |
+|===
+
+You'll always begin with the introduction.
+It exposes what the quest is going to learn you.
+The repository situation is explained as well as the job to do.
+The weapon section helps both *Knights* and *Heroes* to see which git command is required to complete the quest.
+
+== Take your quests
+Don't worry about your environment setup, everything is setup for you with scripts. Make sure to have a running node environment and then `npm install git-quest`.
+
+With the script installed, you can list and start the quests.
+You can also open the quest instructions and help with commands.
+
+[source, bash]
+----
+$ git-quest
+[...]
+
+Commands:
+  list                List available quests
+  init <quest> [dir]  Begin a new quest
+  read [options]      Read current quest instructions
+  help [options]      Show current quest help
+----
+
+If you don't specify a directory, the quest is installed in the current directory.
+
+No need to understand JavaScript to complete the quests.
+Don't open and edit the project files, only use git commands. 
+
+CAUTION: You can solve all the quest without editing the files.
+This is the most important rule you need to respect.
+
+== Purpose project
+Playing with git assume you have some codebase to play with.
+I build a tiny project which displays a fancy message in the console.
+The message is made with colourful ASCI art and is also animated.
+
+// Gif du projet
+
+The project requires to install Node.js.
+Make sure you installed Node.js, try to run `node -v` in you console.
+If the current version doesn't appear https://nodejs.org/en/download/[download and install Node.js].
+
+For each quest, the entry point of the project is `index.js`.
+It means, you always run the project with `node index.js`.
+
+
+
+
+
+

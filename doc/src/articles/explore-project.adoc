@@ -1,0 +1,109 @@
+= Explore your project versions
+
+Fine, you created multiple version of your codebase with commits.
+It's time to list all versions, visualize their content and also compare them.
+
+In my opinion, graphic interfaces are more efficient than git commands for this purpose.
+I'ld recommend `gitk` which comes with git out of the box.
+It comes along with `git gui` which helps to commit and manage your staging area.
+Besides, many open source Git link:https://en.wikipedia.org/wiki/Graphical_user_interface[GUI] allow using git without the link:https://en.wikipedia.org/wiki/Command-line_interface[CLI], look at the link:https://git-scm.com/downloads/guis[official list].
+The most famous includes link:https://www.sourcetreeapp.com/[SourceTree] from Atlassian, link:https://www.gitkraken.com/[GitKraken] and link:https://desktop.github.com/[GitHub Desktop].
+
+Yet, I'm going to introduce the basic commands.
+It can be handy when you don't have a screen (ssh on a server) and even to write scripts.
+
+The command which lists commits is `git log`.
+This will output the list of all commits.
+You can see many details: who did the commit, when and the message.
+
+[source=bash]
+----
+$ git log
+commit ab910bf6af5ef079ec094c5cbe8e989d8cab20ac
+Author: jeremy.bardon <jeremy.bardon@>
+Date:   Fri Nov 23 17:50:06 2018 +0100
+
+    Write React introduction
+----
+
+// qui à fait ça: annotate
+Did you notice this long weird thing beside commit?
+It's a SHA1, the unique identifier for this commit.
+If you specify a file, you'll get all the commits affects this very file (this one is really useful).
+
+Log output contains a bunch of data and is also highly customisable.
+That's why it exists a famous *lol* alias.
+This one set some parameters to the log command to make it give a short and effective history.
+
+[source=bash]
+----
+alias.lol=log --graph --decorate --pretty=oneline --abbrev-commit
+alias.st=status
+alias.cp=cherry-pick
+alias.br=branch
+alias.co=checkout
+alias.ci=commit
+----
+
+There are many aliases for everyday commands.
+You can add them in your global git configuration with `git config --global --add alias.ci="commit"`.
+Now, you can type `git ci`, the alias is replaced with the content from the configuration.
+
+If you want to see the changes for one commit, use `git show`.
+By default, you'll see all the modifications in your console.
+Add `--name-only` to have changed files list without the details.
+
+[source=bash]
+----
+$ git show 7bdbb4d --name-only
+$ git show 7bdbb4d react.txt
+----
+
+It's time to compare files between different commits.
+Git is powerful in this area, you can see the differences for a file or a directory among multiple commits.
+For instance, you can see all the differences in your codebase between commit A and D (it'll also include commit B and C changes).
+
+[source=bash]
+----
+$ git diff A..C
+$ git diff A..C react.txt
+----
+
+When you don't give commits to diff, you'll get the difference in your working directory but not staged for commit.
+The `--staged` option only shows differences for files in the staging area.
+A quick trick, set not parameters but make the comparision with `HEAD` to see not staged and staged files.
+
+[source=bash]
+----
+$ git diff
+> react.txt
+
+$ git diff --cached
+> vue.txt
+
+$ git diff HEAD
+> react.txt
+> vue.txt
+----
+
+Great, you can see differences among multiple commits.
+What about being able to reset your project to a specific version for testing?
+You can do it with `git checkout`.
+
+[source=bash]
+----
+$ git checkout 7bdbb4d
+$ git checkout HEAD
+----
+
+Actually, when you checkout on a commit you'll be in a detached HEAD state.
+It means you can't commit in this state.
+To go back to your original state, you can use the HEAD value.
+
+If you're looking for when a bug appeared, git has link:https://git-scm.com/book/en/v2#_binary_search[something for you].
+First, find any version where the bug wasn't present.
+Then launch `git bisect`, it'll use a dichotomous algorithm to find the commit efficiently.
+
+Git will perform a binary search from the commit you identified to the most recent commit.
+After an automatic checkout, it'll ask if the current commit contains the bug or not.
+With your answer, git will deduce what's the next commit to check until it found the one which introduced the bug.

@@ -1,0 +1,90 @@
+include::./index.adoc[]
+
+= Quest #2 - Staging area
+
+This quest belongs to the link:/articles/simple-workflow.html[Simple Workflow] part.
+It means you will learn the basic usage of Git.
+Don't hesitate to read the article introducing concepts for this part.
+
+.In this quest, you'll learn to:
+****
+* remove files from the staging area
+* select files to put in the staging area
+* add a new file in the repository
+****
+
+Here are the instructions for your quest, read them carefully. The weapon section helps you to figure out which commands you'll need to complete this quest.
+
+[horizontal]
+Problem:: 
+You modified `index.js`, `letters.js` and created `colors.js`. All files are in the staging area.
+
+Mission:: 
+Create a commit with only `index.js` and `colors.js`
+
+Weapons:: 
+`add` `reset` `commit` 
+
+Workspace:: 
+*`~/git-quest/quest2/git-quest2`*
+
+If you're already confident with `add`, `reset` and `commit` you can still read the {link-help-short} to understand this quest intent.
+
+CAUTION: Remember you don't need to edit the project files.
+If you're in trouble, reset this quest with `git-quest init 2`.
+
+== Before you start
+
+Run `git-quest init 2` to setup your environment for this quest.
+To ensure you can begin your quest in good conditions, go to the quest repository: `~/git-quest/quest2/git-quest2`.
+
+And run the two following commands to make sure both project and repository are in the right state.
+
+.Repository status
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   colors.js
+	modified:   index.js
+	modified:   letters.js
+
+----
+
+NOTE: Didn't get same results ? Reset the quest by running  `git-quest init 2` again
+
+From here, if you're familiar with git, go ahead and try to complete your quest on your own. Besides, for apprentices, I'ld recommand to follow the {link-help-steps} first.
+Then, reset the quest and try to complete it without any help.
+
+== Check your result
+Once you think you finished the quest, run the following command and check the output.
+
+====
+[source, bash]
+----
+$ git show --name-only
+commit 9ef08fa86e2dc438d7875d9aa36720afc2d3b9b8 (HEAD -> master) <3>
+Author: jbardon <bardonjeremy1@gmail.com>
+Date:   Sat Dec 8 16:58:34 2018 +0100
+
+    Colorful print message (handles lowercas message) <1>
+
+colors.js <2>
+index.js
+----
+
+<1> Your commit message
+<2> Files in the commit: `index.js` and `colors.js`
+<3> Commit location: local only (HEAD -> master)
+====
+
+If you can't see your commit, you must make your commit first.
+You miss something if you get an error or something different.
+
+If you completed this quest on your own, it's still relevant for you to read the {link-help-short}.
+You can compare your solution with mine.

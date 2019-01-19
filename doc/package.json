@@ -1,0 +1,6 @@
+{
+    "scripts": {
+        "start": "gitbook serve --open",
+        "deploy": "./scripts/deploy.sh"
+    }
+}

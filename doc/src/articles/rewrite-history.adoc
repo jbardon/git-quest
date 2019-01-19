@@ -1,0 +1,232 @@
+= Rewrite history
+
+....
+- fait n'importe quoi -> distant --hard
+....
+
+* Add files in the previous commit
+* Change the previous commit (reset)
+* Change one far away commit (fixup)
+* Group commits in a single one
+* Changes multiple commits (reword, edit, drop)
+* Reset a file to its original state
+
+You just commit your work and eventually push it to server.
+The problem is your commit is wrong, you want to change the message, its content, cancel it or even group multiple commits in a single one.
+
+All those operations can be done with `git rebase`.
+This is the multi-tool to rewrite your history.
+Before going further, I should warn you : changing the history is handy but you most follow some rules to avoid puting the mess in your repository.
+
+== Add files in the previous commit
+
+Let's take a first example to explain what happens when the history changes.
+The simpler situation is when you made a commit (only locally) but forgot to add a file and don't want to create a fix commit.
+
+[source=bash]
+----
+$ git add forgotten-file.txt
+$ git commit --amend --no-edit
+----
+
+Just add your files in the staging area as you want to create a new commit.
+The only difference is the `--amend` options which tells git to include the stagged changes in the previous commit.
+While `--no-edit` only specify you don't want to update the commit message.
+It means you can change the previous commit message with nothing more than `git commit --amend`.
+
+Now, you'll rewrite the last commit again but check the commit SHA1 before and after the amend commit.
+
+[source=bash]
+----
+$ git log --pretty=oneline -1 # Show the last commit on one line
+$ git commit --amend --no-edit
+$ git log --pretty=oneline -1
+----
+
+Did you notice your commit SHA1 changed?
+It's different because the commit isn't the same as before: the content and date aren't the same.
+Think about what happens if you replaced a pushed commit?
+You can do whatever you want on your local repository but once you want to push, you'll get troubles.
+
+image:todo.jpg[schéma commit A et A']
+
+There are two different commits with the same parent commit.
+Yet, git don't know what do to with this.
+I'll explain you how to deal with this situation after presenting the most useful history rewriting commands.
+
+== Change the previous commit
+
+If you want to completely change your last commit, such as modifying a committed file or remove one.
+For some cases using an amend commit isn't enough because you need to visualize all changes in the previous commit.
+
+Here comes the `reset` command which helps to move changes between the repository, the staging area and the working directory.
+Our purpose is to move before the last commit but keep the changes in the working directory.
+
+[source=bash]
+----
+$ git reset --soft
+$ git reset --mixed
+$ git reset --hard
+----
+
+There are three flavours of `reset`.
+In this snippet, they comes from the less impacting to the more impacting in your project.
+
+image:todo.jpg[une image]
+
+Soft only moves to the previous commit but keep all changes in your working directory and also already staged.
+Mixed which is also the default behavior resets to the previous commit, put nothing in the staging area but keep the modifications in the working directory.
+The last one is critical because it goes back to the specified commit and erase all modifications in you current directory.
+
+____
+Don't use reset -- hard unless you know what you're doing
+____
+
+In this rewrite history scenario, we want to undo the last commit but keep the changes in the working directory. You'll use `git reset HEAD~1`.
+Head is the shortcut to current commit, so reset to before the last commit.
+
+With this command you still have all modifications from the commit in your working directory but it's like you're before committing.
+If you want to reset the changes for one file use `git checkout -- file.txt`.
+This is the special use case for checkout with a file as parameter, the `--` specifies it isn't a commit.
+
+== Change an older commit
+
+From now, you're able to change the last commit in the history.
+What if you want to change the commit before the last one?
+
+It's possible by replacing `amend` with `fixup` and giving the commit SHA1 you want to modify.
+This fixup commit is now the  last commit.
+You have to use rebase with a specific options to ask git to rewrite the history and merge fixup commits with their target commit.
+
+[source=bash]
+----
+$ git commit --fixup TARGET_COMMIT
+$ git rebase TARGET_COMMIT~ --autosquash
+----
+
+// voir si j'en parle ailleurs
+The rebase command is the multi-tool command for rewriting history.
+In this example the `autosquash` option warn git there are fixup commits to merge (or squash) with their target commit.
+The first parameter set from which commit history rewriting should begin.
+`TARGET~` means before the  target commit.
+You can also specify a number such as `commit~4` to begin 4 commits before.
+Usually, you'll replace `TARGET` with `HEAD` which an alias for the current last commit.
+
+== Group commits into a single one
+
+The last example explained how to squash a fixup commit with a commit.
+Yet, it's also possible to squash any commit and any number successive commits.
+
+For sure this job is for the rebase command.
+This time you'll run it in interactive mode to tweak the history as you want.
+
+[source=bash]
+----
+$ git rebase commit~4 -i
+----
+
+In interactive mode, you have the list of commits to rebase.
+You have to choose what to do with each commit.
+The default option is *pick* which means pick this commit and put it in the new history.
+If every commit action pick, your history will not change.
+From this, you can specify a particular action in the available list for each commit.
+
+image:todo.jpg[Capture du rebase mode]
+
+The action we're interesting in, for this scenario is squash.
+When a commit must be squashed, git pick changes from this commit and put them in the next commit.
+Then it drops the squash commit.
+You can squash any number of successive commit, but you can't squash the most recent commit.
+Indeed, this is the last commit so there is no next commit to squash with.
+
+== Edit multiple commits
+
+Did you look at the actions rebase offers in interactive mode?
+It provides a wide range of actions from the simple reword (update commit message) to the full of promise edit action.
+
+image:todo.png[une capture de toutes les options]
+
+Most of the actions are not hard to understand.
+You already what `pick`, `reword`, `squash` and also guessed what `drop` can do to your commit.
+In the real world you'll not use rebase a lot except to clean your history with `squash` or `reword` a bad commit message.
+
+As you may notice, `edit` description is quite explicit.
+It stops on the commit and let you the possibility to do changes and run a `amend` as we saw before.
+
+When you choose actions which require manual changes such as edit, the rebase command take a break.
+Once you finished your changes, you can resume the rebase with `git rebase --continue` as the `git status` suggests.
+Also, you may did something wrong during the rebase.
+You can exit the rebase and recover the state before the rebase with `git rebase --abort`.
+
+== Can't push my new history
+
+Rebasing the history means replace an old commit with a new one.
+Even if you don't change its content and you choose the pick action, the commit SHA1 will change.
+
+Now you want to push your changes to the server.
+But it asks you to pull before because the local history isn't up to date.
+You'll for sure get trouble with this.
+Because of the rebase, you end up with a different history.
+There are two times the same commits but with a different SHA1.
+It's enough for git to say they aren't the same.
+It asks you to merge the local and remote commits.
+
+Yet, merging two commits which does the same thing is a non-sense.
+When you do rebase your version is right and you need to tell to it to git with a `git push --force` instead of pull.
+
+This is were you can loose your work or your colleagues one.
+Push with the force means take the local history and put it on the remote.
+As soon as you didn't pull before, if your colleagues pushed in the meantime, their commits will be lost.
+And they will get trouble to synchronise their local history with the brand new remote.
+If you have to use force prefer `--force-with-lease` which fails if a new commit was pushed to the server.
+
+____
+Only push --force not shared branch. Otherwise, at least be polite and prefer to --force-with-lease
+____
+
+To make it short, don't rebase a shared branch, it's dangerous.
+Yet, you can rebase your own branch as you wish (learn about branches later).
+
+If you already `push --force`, this is possible to repair your mistake.
+Either a colleague of yours `push --force` their local history and delete your work.
+Or all your colleagues must merge their local with the remote.
+
+[source=bash]
+----
+$ git fetch --all
+$ git reset --hard origin/master
+----
+
+With this second way, your work is safe but any modifications your colleagues didn't pushed will be dropped because of the `reset --hard`.
+This is possible to keep them but it involves either stash or branch from master and cherry-pick.
+
+Any way, you understand it's bad to force push a shared branch.
+Prefer the first solution and use a branch and cherry-pick to get back your changes.
+No details about how to do it exactly because you shouldn't be in this kind of situation and it depends on how big your changes are.
+
+== Drop a commit without rebase
+
+The last situation is when you pushed something but you want to delete the commit.
+It happens if the feature isn't ready or if your commit breaks too many thing and you need time to fix it.
+
+You already know how to drop a commit with rebase but there is another way without rewriting the history.
+This is what revert is made for.
+It gets any commit a build a commit with the exact inverse from the target commit.
+This creates a new commit and keep your buggy commit.
+
+[source=bash]
+----
+$ git revert COMMIT
+----
+
+By the way git is asking a message for this revert commit and automatically includes the target commit SHA1 in the message.
+Later, you can use `cherry-pick` your buggy commit to get your changes back, fix it and `amend` it.
+
+If you need to revert more than one commit you must be careful about the order.
+Revert the most recent commit first and go down to the older.
+The order isn't enough because you'll get an history with 3 revert commit if you reverted 3 commit and this is too much.
+
+For this situation, I'ld recommend to confirm the first revert commit and then `amend` this first revert commit.
+Be careful to include all reverted commits SHA1 in the commit message to keep a clear history.
+This was one solution.
+You can also create the 3 revert commits and then use rebase to squash them into one single commit afterward.

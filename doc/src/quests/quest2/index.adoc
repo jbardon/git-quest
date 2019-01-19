@@ -1,0 +1,6 @@
+:path-quest: /quests/quest2/quest2.
+:path-main: {path-quest}main.html
+:path-help: {path-quest}help.html
+:link-main-check: link:{path-main}#_check_your_result[check your result]
+:link-help-short: link:{path-help}#_short_answer[Short answer]
+:link-help-steps: link:{path-help}#_step_by_step_solution[step by step solution]

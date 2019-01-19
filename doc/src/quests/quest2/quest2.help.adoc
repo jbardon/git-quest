@@ -1,0 +1,170 @@
+include::./index.adoc[]
+
+= Quest #2 - Solution
+
+If you're comfortable with git, check this section only after trying to complete your quest. The instructions with the weapons section may help you to find out what git commands you need. If you already passed {link-main-check}, it's safe you can keep reading.
+
+== Short answer
+
+This is the complete workflow of git commands to complete the quest. You can see it as summary if you're an apprentices.
+
+For heroes, it can help you to compare your solution with mine.
+
+[source, bash]
+----
+$ git reset
+$ git add index.js
+$ git add colors.js
+$ git commit -m'Colorful print message (handles lowercase message)'
+----
+
+After running all the commands in the right order, you can {link-main-check} it should be fine.
+
+The following section solutions explains in depth why you need theses commands. It also includes frequent repository status to help you understand what's going on.
+
+== Step by step solution
+
+=== Step 0 : Initial state
+
+You should get the exact same state of you repository to begin the quest. The three files are in the staging area (*Changes to be committed* section). Note `colors.js` wasn't in the repository before, it's a new file.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   colors.js
+	modified:   index.js
+	modified:   letters.js
+
+----
+
+WARNING: If you get a different result, don't waste your time and run `git-quest init 2` again.
+
+=== Step 1 : Remove files from the staging area
+
+`reset` is the command to remove files from the staging area. If no file is specified the staging area is empthied. Be careful about `reset`, it exists the variant with `--hard` option. This option can led you to loose your work, you learn more about it in a coming quest. For the moment, just remember `reset` without the `-hard` option is totaly harmless.
+
+[source, bash]
+----
+$ git reset
+Unstaged changes after reset:
+M	index.js
+M	letters.js
+----
+
+Note it doesn't mention `color.js` because it's a new file. Yet, all the three files moved from the *Changes to be committed* section. `index.js` and `letters.js` are in *Changes not staged for commit* because they where know (tracked) by git before. Besides, `colors.js` is in *Untracked files*.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   index.js
+	modified:   letters.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	colors.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+----
+
+=== Step 2 : Select files to put in the staging area
+
+We don't want modifications from `letters.js`. It means it's not possible to use `git add .`.
+
+[source, bash]
+----
+$ git add index.js
+----
+
+Once you added `index.js` you'll see the three different states for a file in git: 
+
+* Staged (Changes to be committed)
+* Modified (Changes not staged for commit)
+* Untracked (Untracked files)
+* Not modified
+
+The last one is for a file tracked by git but not modified since the last commit.
+You can see all tracked files with `git ls-files`.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   letters.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	colors.js
+
+----
+
+=== Step 3 : Add a new file in the repository
+
+`colors.js` is a particuliar file. It wasn't in the repository before, git don't know about it.
+To make it track is simple, just use `git add` as for modified files.
+
+[source, bash]
+----
+$ git add colors.js
+
+----
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	new file:   colors.js
+	modified:   index.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   letters.js
+
+----
+
+Changes for `index.js` and the new `colors.js` are included in the commit.
+From now, changes for `colors.js` will be tracked the same way as `index.js`.
+
+[source, bash]
+----
+$ git commit -m'Colorful print message (handles lowercas message)'
+[master 9ef08fa] Colorful print message (handles lowercas message)
+ 2 files changed, 39 insertions(+), 27 deletions(-)
+ create mode 100644 colors.js
+ rewrite index.js (87%)
+----
+
+NOTE: Congratulations, you completed the quest! Try to {link-main-check}.

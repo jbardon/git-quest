@@ -1,0 +1,16 @@
+:path-quest: /quests/quest
+
+= Get help
+
+This page gathers help pages for all quests.
+
+If you're stuck in a quest, you can use `git-quest help`.
+The help page related to your quest will open automatically.
+
+Help pages are divides into two parts: *short answer* and *step by step solution*.
+The former is the list of commands to complete the quest.
+While the latter includes command results and explanations for beginners.
+
+* link:{path-quest}1/quest1.help.html[Quest #1 - Add, commit and push]
+* link:{path-quest}2/quest2.help.html[Quest #2 - Staging area]
+* link:{path-quest}3/quest3.help.html[Quest #3 - Search the mysterious message]

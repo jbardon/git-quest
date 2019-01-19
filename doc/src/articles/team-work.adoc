@@ -1,0 +1,193 @@
+= Work in team with branches
+
+....
+- en vrai le merge c'est pas que des branches mais des pull request avec possiblement des forks
+....
+
+// lien vers chapitre du livre
+Sometimes, you want begin a long run feature development.
+You can't finish it quickly so you won't push this half-finished code on the repository.
+
+That's nice to think about it.
+Yet, it means you can't save your work on the git server and that's bad for such a feature.
+Good news, git also have a solution for this issue : *branches*.
+
+== Create your own branch
+
+When you create a repository you only have a single branch (master).
+If you want to diverge from master, then create a new branch.
+
+[source=bash]
+----
+$ git branch myfeature
+$ git checkout myfeature
+$ git status
+
+$ git checkout -b myfeature
+----
+
+Then you will be able to keep developing on master.
+Also commit and push on your personal branch won't affect the master branch.
+Create a branch allows you to push your commits on the server and save it.
+Still you can create a local branch but not upload it to the server.
+
+Check your repository status when on the branch to know if you pushed it to the server before.
+
+[source=bash]
+----
+$ git status
+On branch dev
+Your branch is up-to-date with 'origin/dev'.
+
+$ git status
+On branch dev
+----
+
+In the first case it tells about origin/dev.
+This is the local copy of the remote dev branch.
+It means your local branch is on the server, git says it's a tracked.
+
+== What's a branch exactly?
+
+If you look a diagram which explains some branches workflow, you may think a branch is copy of another branch with new commits on the top.
+It was true with Subversion but not with Git.
+
+As I said before, Git manages commits and each commit have a unique identifier (a SHA1).
+Once you commit on a new branch the git history will simply fork.
+Creating a branch is cost free because it's only a pointer on a particular commit.
+
+image:todo.jpg[un schéma]
+
+What happens if you modified files and then switch to another branch for some reason?
+Git will try to reply your current modifications on the other branch.
+Actually, when you only modify a file in your working directory but did nothing with in git.
+But if you checkout on another branch the file may be different and reply your changes isn't often straightforward.
+
+== Keep your branch up-to-date
+
+Be careful, there is a trap with branches.
+It means, your branch lost track of new master commits.
+What if you want to be up to date with master?
+
+[source=bash]
+----
+$ git checkout master
+$ git pull
+$ git checkout myfeature
+$ git rebase master
+----
+
+It maybe exists other ways, but this one is quite simple.
+Now, your branch is up to date with master and also the new commit from your branch.
+This is great but once your try to push, you'll get troubles.
+
+We'll talk further about rebase later.
+For now, just remember it takes the last commit on master and then try to apply your commits from your branch on top of it.
+By doing that, you rewrite the history because the commits from your branch was attached to an old master commit before.
+It means the commit content stays the same but the SHA1 is different so the two commits aren't the same from git perspective.
+
+// ça devrais changer puisque rebase c'est la partie précédente
+Anyway, you can rewrite the history but be careful about it.
+It can put the mess in your repository.
+You update the repository with a new history but your colleague have an other version of the history.
+Here is the rule of thumb :
+
+____
+Don't rebase a shared branch, but rebase your personal branche and merge.
+____
+
+Here is the common workflow when you finished the feature on your branch and want to put it on master.
+You either merge directly with master and resolve conflicts.
+Or in this example, rebase to resolve conflict and then do a straight-forward merge (no conflicts).
+
+Rebase is a great choice if you want to keep a clean history.
+But you won't clearly see branches and features anymore, the history is only a successions of commits.
+With merge, the commits from your branch stays on your branch and you have an additional merge commit which connects your branch and master.
+This is also easy to understand when you have some branches but it can get hard to understand with a lot of branches.
+
+In both scenarios, you should delete your branch because everything is already on master.
+Your branch is in two locations: *local* and *remote*.
+
+[source=bash]
+----
+$ git branch -D branch
+$ git push origin :branch
+----
+
+You know how to isolate your work from other by creating a branch.
+For some reasons you may need to push only a part of your branch but keep working on.
+This is the time to use cherry-pick.
+It pick the commit and put it whatever you want on top of the branch.
+
+[source=bash]
+----
+$ git cherry-pick SHA1
+----
+
+The drawback is cherry-pick works like rebase.
+It'll copy the commit but as the parent commit won't be the same, the SHA1 will change.
+
+== Explore branch history
+
+You begin to use branches, maybe cherry-pick so you need a more powerful tool to compare branches and see the commit differences.
+We'll explore the most common scenarios:
+
+* Display commits only on your branch
+* Display commits only on another branch
+* Is a commit on your branch and another branch?
+
+All those things can be done with `git log` but options can be a bit tricky.
+For the first case, the intent is to see what's not on master and need to be merged.
+
+[source=bash]
+----
+$ git log master..myfeature
+$ git log myfeature --not master
+----
+
+Two ways to make this.
+Start from master in see which commit you need to get to your branch.
+But in my opinion the second way is more readable: take all commits in your branch but not on master.
+Display commits only on another branch is quite the same scenario, just inverse the branches names.
+
+[source=bash]
+----
+$ git log myfeature..master
+$ git log master --not myfeature
+----
+
+In my mind the first command is not understandable, that's why I prefer the *not* form.
+The way of thinking is very different from one to another, choose the one you're the most comfortable with and stick with it.
+
+The last questions was about printing commit on both branches.
+If you always use merge and prohibited rebase and cherry-pick, this is easy.
+
+[source=bash]
+----
+$ git branch -ra --contains COMMIT_SHA1
+----
+
+When you use rebase and cherry-pick, you're a bit screw-up.
+Because commit SHA1 are different in each branch even if the content is the same.
+Still, you can barely do it if you display commits on master or you branch and add the commit branch name.
+If a commit is on both you'll see two times the same commit message with a different branch name.
+
+[source=bash]
+----
+$ git log master myfeature --source
+----
+
+If you don't really care about commits and only want to see the differences, you can use `git diff` instead.
+
+[source=bash]
+----
+$ git log myfeature --not master
+$ git diff --stat myfeature --not master
+----
+
+Comparing commits between branches is very important.
+Many companies have various environments which corresponds to branches: development, qa, charge and production for example.
+Doing this with git is still complicated for me, don't hesitate to share your tips!
+
+In the real world, we put the Jira ticket number in the commit message.
+It allows to filter the commit on both branch and compare easily.

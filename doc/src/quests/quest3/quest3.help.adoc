@@ -1,0 +1,212 @@
+include::./index.adoc[]
+
+= Quest #3 - Solution
+
+If you're comfortable with git, check this section only after trying to complete your quest. The instructions with the weapons section may help you to find out what git commands you need. If you already passed {link-main-check}, it's safe you can keep reading.
+
+== Short answer
+
+This is the complete workflow of git commands to complete the quest. You can see it as summary if you're an apprentices.
+
+For heroes, it can help you to compare your solution with mine.
+
+[source, bash]
+----
+$ git log --author='john.doe'
+$ git log index.js 
+$ git show 00f166 --name-only
+$ git show 00f166 index.js
+$ git checkout 00f166~
+----
+
+After running all the commands in the right order, you can {link-main-check} it should be fine.
+
+The following section solutions explains in depth why you need theses commands. It also includes frequent repository status to help you understand what's going on.
+
+== Step by step solution
+
+=== Step 0 : Initial state
+
+You should get the exact same state of you repository to begin the quest.
+The working directory is clean.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+----
+
+WARNING: If you get a different result, don't waste your time and run `git-quest init 3` again.
+
+=== Step 1 : List John commits
+
+`git log` is the command to list commits.
+
+It accepts a bunch of options to filter the result.
+Common options includes :
+* `--grep='Fix'' to search in messages
+* `--author='john.doe'`
+* `--since='yesterday'`
+* `-2` limit list to the two first results
+
+[source, bash]
+----
+$ git log --author='john.doe'
+commit 00f1666baba667f5b7a9373c91eada6106a65c3f (HEAD -> master, origin/master)
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 16:20:38 2019 +0100
+
+    Fix lowercase message
+
+commit 7e56812e40b27d52dc42fdb42b2a10ad69a4b2d2
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 09:47:22 2019 +0100
+
+    Translate message in ASCII art
+
+----
+
+You have to press *q* to escape the log and get back your shell.
+John did work on the project and made two commits.
+
+=== Step 2 : List `index.js` history
+
+The message displayed by the program is defined in `index.js`.
+Let's see who modified this file, John should changed it to update the message.
+
+[source, bash]
+----
+$ git log index.js
+commit 00f1666baba667f5b7a9373c91eada6106a65c3f (HEAD -> master, origin/master)
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 16:20:38 2019 +0100
+
+    Fix lowercase message
+
+commit ec273b1ffdd152ed54f600d151b7c370405567c7
+Author: jbardon <bardonjeremy1@gmail.com>
+Date:   Fri Jan 4 09:45:27 2019 +0100
+
+    Refacting: export letters
+
+commit 1ecc8223870131f937297c247f0449790c610a08
+Author: jbardon <bardonjeremy1@gmail.com>
+Date:   Fri Jan 4 09:38:47 2019 +0100
+
+    Begin Quest #3
+
+----
+
+Note, you may add the `--author='john.doe'` to filter this history.
+Thanks to this command, you know which commit from John changed the message.
+The commit SHA1 is `00f1666baba667f5b7a9373c91eada6106a65c3f`, this is its unique identifier.
+
+You can use the first caracters and ommit the rest for conveniance.
+Chances are tight two commits have a SHA1 begining with the same 4~6 first characters.
+If so, git will let you know.
+
+=== Step 3 : Inspect the mysterious commit
+
+You find the commit which changed the message.
+Now, you need to inspect this commit with `git show`.
+It'll help to see which files changed and what changed in `index.js`.
+
+[source, bash]
+----
+$ git show 00f166 --name-only
+commit 00f1666baba667f5b7a9373c91eada6106a65c3f (HEAD -> master, origin/master)
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 16:20:38 2019 +0100
+
+    Fix lowercase message
+
+index.js
+printer.js
+----
+
+[source, bash]
+----
+$ git show 00f166 index.js
+commit 00f1666baba667f5b7a9373c91eada6106a65c3f (HEAD -> master, origin/master)
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 16:20:38 2019 +0100
+
+    Fix lowercase message
+
+diff --git a/index.js b/index.js
+index 20d1836..a99f0a0 100644
+--- a/index.js
++++ b/index.js
+@@ -1,2 +1,2 @@
+ const print = require('./printer');
+-print('GITQUEST');
++print('guest');
+----
+
+Did you see it? The message changed from *"GITQUEST"* to *"guest"* with this commit.
+Check the current message before reading the last step.
+
+[source, bash]
+----
+$ node index.js
+ __        ___  __  ___ 
+/ _` |  | |__  /__`  |  
+\__> \__/ |___ .__/  |  
+                        
+----
+
+=== Step 4 : Jump before this commit
+
+This commit changed the message and you know what's the previous message.
+For some reasons your may need to reset you project to before this commit.
+With this way, you'll be able to run the project.
+
+This is especially usefull to search when a bug appeared.
+In another quest you'll learn about `git bisect` which is designed to find when a bug appeared.
+The tool make the `checkout` automatically, each time you run the program and tell if you reproduce the bug.
+
+[source, bash]
+----
+$ git checkout 00f166~
+Note: checking out '00f166~'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b <new-branch-name>
+
+HEAD is now at 7e56812... Translate message in ASCII art
+----
+
+[source, bash]
+----
+$ git status
+HEAD detached at 7e56812
+nothing to commit, working tree clean
+----
+
+That's it you're before this mysterious commit. 
+If you specify the commit SHA1, git will jump to this commit and not before.
+Thanks to the tiny `~` symbol after, you can say: "Just before this commit".
+
+[source, bash]
+----
+$ node index.js
+ __    ___  __        ___  __  ___ 
+/ _` |  |  /  \ |  | |__  /__`  |  
+\__> |  |  \__X \__/ |___ .__/  |  
+                                  
+----
+
+Now, to go back the previous state at the top of the history.
+You can either use `git checkout -` or `git checkout master`.
+`-` is an alias for the previous location while *master* is where you were before.
+To learn what *master* means, read the article on branches.

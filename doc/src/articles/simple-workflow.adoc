@@ -1,0 +1,179 @@
+= Simple workflow for solo developers
+
+Using git in your project is simple.
+If you already manage you codebase with git, run a `git clone` to retrieve it.
+Otherwise you can turn a regular project into a git repository with `git init`.
+
+In both cases, you'll find a `.git` folder in the project root.
+This is the only location where git puts its information about the project versions.
+Don't touch it, it's not yours!
+
+[source=bash]
+----
+$ ls -a
+./  ../  .git/  react.txt  vue.txt
+
+# This is a git repository
+$ git status
+On branch master
+nothing to commit, working directory clean
+
+# Not a git repository
+$ git status
+fatal: Not a git repository (or any of the parent directories): .git
+----
+
+// status est verbose mais il donne beaucoup d'infos et surtout plein de conseils pour se sortir de sa situation
+Another way to check a directory belongs to a git repository is to run `git status`.
+It gives details about the repository.
+But not work outside of a git repository.
+
+== Add, commit & push
+
+Now you have a git repository, we can begin to go though the basic git workflow.
+In this context, you can still loose your work by doing anything but you won't have to deal with conflicts.
+
+Yes, conflicts are tiresome but only happens when you and a felow developer update the same piece of code.
+This workflow is basically what you might remember if you learned with pratice.
+
+____
+ADD some modified files, COMMIT your changes and PUSH your commit to share it
+____
+
+Here the translation into git commands:
+
+[source=bash]
+----
+$ git add file.txt
+$ git commit -m 'Add new file' # The message is required
+$ git push
+----
+
+First, we'll focus on add and commit.
+Git base unit are commits.
+Its job is to manage commits.
+They contains modifications between each version of the codebase.
+
+Each commit contains a message which describes it.
+You don't need to make it long but be careful about its content.
+Look at guidelines from Pro Git, it seems a bit too much but still interessting to read.
+
+[source=bash]
+----
+$ git commit -m 'Write React and Vue introduction'
+On branch master
+Changes not staged for commit:
+        modified:   react.txt
+        modified:   vue.txt
+
+no changes added to commit
+----
+
+In this example, there are modification on `react.txt` and `vue.txt`.
+But, you can't commit there are `no changes added to commit`.
+Well, Git is smart and tries to help you with meaningful feedback.
+It'll not assume you want to commit all changes.
+You must select which modified file you want to put in your commit.
+
+That's what *add* is made for.
+Its purpose is to add files in the *staging area*.
+When you ask for a commit, git will only include staged files.
+Other modified files are also in your working directory but won't be considered.
+
+[source=bash]
+----
+$ git add react.txt
+$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   react.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   vue.txt
+$ git commit -m 'Write React introduction'
+[master 8342ba8] Write React introduction
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   vue.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+----
+
+// (night owl (theme))
+On of the most useful command is `git status`.
+It tells clearly which files are modified and if they're staged for commit.
+The green part is the staged area.
+
+Indeed a file can be in three states: modified, staged or committed.
+I think you can now understand the following diagram from Pro Git.
+
+.Diagram from Pro Git book  - link:https://git-scm.com/book/en/v2/Getting-Started-Git-Basics#_the_three_states[ The Three States]
+image:img/areas.png[]
+
+As explained before, git records everything in the `.git` directory.
+It manages commit so only committed files are in this directory.
+Current modifications from the working directory and the stagging area aren't there.
+After a commit the staging area will be empty.
+Your working directory is also clean (no modifications) if you added all modified files to the staging area before.
+
+I forgot to tell you about `git push`.
+Git manage codebase versions but also helps synchronise the last version with your colleagues.
+The repository is usually hosted on a git server.
+When you push, your new commits are send to the server.
+Your colleagues will be able to get the last version.
+
+Here a last thought about files changes.
+You can have files in your directory git don't know about, they're *untracked*.
+It happens when you create a new file in your codebase.
+A simple `git` add will tell git to track it.
+
+.Diagram from Pro Git book  - link:https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository#_recording_changes_to_the_repository[Recording Changes to the Repository]
+image::img/lifecycle.png[]
+
+Files in git can be in four states.
+By default every known (or tracked) file is *unmodified*.
+You can see the file states with `git status`.
+
+[source=bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   index.js
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   letters.js
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	colors.js
+----
+
+This command is pretty verbose but comes with many details.
+They are a maximum of three sections corresponding to three file states:
+
+* Changes to be committed (Staged)
+* Changes not staged for commit (Modified)
+* Untracked files (Untracked)
+
+You can't see *Unmodified* files because it's not relevant, what's important are modifications, the rest is already saved in git.
+Still, it's possible to display a list of all tracked files using `git ls-files` .
+The output will include all files not in the untracked part.

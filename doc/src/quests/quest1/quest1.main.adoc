@@ -1,0 +1,84 @@
+include::./index.adoc[]
+
+= Quest #1 - Add, commit and push
+
+This quest belongs to the link:/articles/simple-workflow.html[Simple Workflow] part.
+It means you will learn the basic usage of Git.
+Don't hesitate to read the article introducing concepts for this part.
+
+.In this quest, you'll learn to:
+[sidebar]
+****
+* put all modified files in the staging area
+* create a new version with modified files
+* send your commit to the server
+****
+
+Here are the instructions for your quest, read them carefully. The weapon section helps you to figure out which commands you'll need to complete this quest.
+
+[horizontal]
+Problem:: You modified `index.js`
+Mission:: Commit and push all changes to the server
+Weapons:: `add` `commit` `push`
+Workspace:: *`~/git-quest/quest1/git-quest1`*
+
+If you're already confident with `add`, `commit` and `push` you can still read the {link-help-short} to understand this quest intent.
+
+CAUTION: Remember you don't need to edit the project files.
+If you're in trouble, reset this quest with `git-quest init 1`.
+
+== Before you start
+Run `git-quest init 1` to setup your environment for this quest.
+To ensure you can begin your quest in good conditions, go to the quest repository: `~/git-quest/quest1/git-quest1`.
+
+And run the two following commands to make sure both project and repository are in the right state.
+
+.Repository status
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+----
+
+NOTE: Didn't get same results ? Reset the quest by running  `git-quest init 1` again
+
+From here, if you're familiar with git, go ahead and try to complete your quest on your own. Besides, for apprentices, I'ld recommand to follow the {link-help-steps} first.
+Then, reset the quest and try to complete it without any help.
+
+== Check your result
+Once you think you finished the quest, run the following command and check the output.
+
+[example]
+====
+[source, bash]
+----
+$ git show --name-only
+commit a74355f413554c0334fe03fa5fd76b31247d5982 (HEAD -> master, origin/master) <3>
+Author: jbardon <bardonjeremy1@gmail.com>
+Date:   Fri Dec 7 12:39:20 2018 +0100
+
+    Print the message in ASCII art <1>
+
+index.js <2>
+(END)
+----
+
+<1> Your commit message
+<2> Files in the commit: only `index.js`
+<3> Commit location: local (HEAD -> master) and remote (HEAD -> origin/master)
+====
+
+If you can't see your commit, you must make your commit first.
+You miss something if you get an error or something different.
+
+If you completed this quest on your own, it's still relevant for you to read the {link-help-short}.
+You can compare your solution with mine.

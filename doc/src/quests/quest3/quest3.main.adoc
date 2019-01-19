@@ -1,0 +1,85 @@
+include::./index.adoc[]
+
+= Quest #3 - Search the mysterious message
+
+This quest belongs to the link:/articles/simple-workflow.html[Simple Workflow] part.
+It means you will learn the basic usage of Git.
+Don't hesitate to read the article introducing concepts for this part.
+
+.In this quest, you'll learn to:
+****
+* list and filter history
+* show file history
+* inpect version content
+* reset project to a version
+****
+
+Here are the instructions for your quest, read them carefully. The weapon section helps you to figure out which commands you'll need to complete this quest.
+
+[horizontal]
+Problem:: 
+John Doe changed the message displayed in the program while updating `index.js`.
+You want to see what the previous message looked like.
+
+Mission:: 
+* List commits by `john.doe`
+* Show commit changes for `index.js`
+* Find out which files changed with commit `00f166` 
+* Jump before the commit `00f166` 
+
+Weapons:: 
+`log` `show` `checkout` 
+
+Workspace:: 
+*`~/git-quest/quest3/git-quest3`*
+
+If you're already confident with `log` and `show` and `checkout` you can still read the {link-help-short} to understand this quest intent.
+
+CAUTION: Remember you don't need to edit the project files.
+If you're in trouble, reset this quest with `git-quest init 3`.
+
+== Before you start
+
+Run `git-quest init 3` to setup your environment for this quest.
+To ensure you can begin your quest in good conditions, go to the quest repository: `~/git-quest/quest3/git-quest3`.
+
+And run the two following commands to make sure both project and repository are in the right state.
+
+.Repository status
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+----
+
+NOTE: Didn't get same results ? Reset the quest by running  `git-quest init 3` again
+
+From here, if you're familiar with git, go ahead and try to complete your quest on your own. Besides, for apprentices, I'ld recommand to follow the {link-help-steps} first.
+Then, reset the quest and try to complete it without any help.
+
+== Check your result
+Once you think you finished the quest, run the following command and check the output.
+
+====
+[source, bash]
+----
+$ git log -1
+commit 7e56812e40b27d52dc42fdb42b2a10ad69a4b2d2 (HEAD) <1> <2>
+Author: john.doe <john.doe@>
+Date:   Fri Jan 4 09:47:22 2019 +0100
+
+    Translate message in ASCII art
+----
+
+<1> Commit SHA1: 7caf5b029e53ed3eafeeb25db7e61b33d8e243ec
+<2> Commit location: detached HEAD (HEAD)
+====
+
+You miss something if you get an error or something different.
+
+If you completed this quest on your own, it's still relevant for you to read the {link-help-short}.
+You can compare your solution with mine.

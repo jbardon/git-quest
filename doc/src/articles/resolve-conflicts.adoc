@@ -1,0 +1,103 @@
+= Resolve conflicts with your team
+
+We talked about how git is great because it allows to share the very last version of the codebase with your team.
+This was all thank's to the `git push` command which sends your local commits to the server.
+
+It's time to learn how to keep your local repository up-to-date with the remote.
+Actually, it's recommended but also necessary if you want to push but don't have the last commits.
+The opposite of push is pull.
+
+Run a `git status` to know if you're up-to-date with the remote.
+Our local branch (more on that later) is master.
+The local copy of the remote branch to retrieve updates is named origin/master.
+
+[source=bash]
+----
+$ git status
+On branch dev
+Your branch is up-to-date with 'origin/dev'.
+----
+
+It says you have the very last version but it's not necessary right.
+To make sure you're up-to-date, you have to pull before.
+This will retrieve the last version of master and copy it into origin/master.
+Finally, git will try to merge master and origin/master.
+That's why you can get conflicts here.
+
+From this point you may be in three situations:
+
+* No local commits nor modified files = No troubles
+* No local commits but modified files = Not a big deal
+* Local commits (not pushed) = Keep calm and carry on
+
+If you didn't commit or modified files (without commit) since your last push, you're safe, no conflicts ahead.
+But you may have modified files, don't want to commit but still want to be up-to-date.
+This is easy to do with the `stash` command.
+
+[source=bash]
+----
+$ git stash
+$ git pull
+$ git stash pop
+----
+
+There is no magic here. Behind the hood, git makes an hidden commit of all the modified files.
+With `stash pop`, it recovers the changes from this hidden commit and delete it as nothing happened.
+Except you're know up-to-date with the remote and keep your modified files.
+
+Now comes the worst and most common scenario.
+You have local commits and there are conflicts with the remote new commits.
+The bad news is you may get more conflicts as the difference in commits between the local and the remote increases.
+To avoid this, pull regularly for updates.
+
+Git has two commits, the local and the remote commit but can't merge the two.
+It's solution is to ask you to resolve the conflict manually.
+Check the repository status and you'll see unmerged files in a specific part.
+
+image:todo.jpg[git status with unmerged files]
+
+That's not recommended to resolve conflicts by editing the files.
+Conflicts in files are not very user friendly and its long to solve.
+You may prefer to use a specific tool or your IDE.
+If your IDE don't offer this kind of feature you can use the link:http://meldmerge.org/[open source and multi-platform Meld}.
+
+image:todo.jpg[Exemple d'un conflit avec le marge avec trois versions]
+
+This is what a conflict looks like.
+Three different versions of the same file.
+Usually, the middle version is the final one which will be keeped.
+Yet, it's always hard to figure out if your version is on right of left.
+I have no advice about this, try to look at the changes and see if its yours or not.
+Then you'll be able to tell which one is your version and which one is the remote version.
+
+Usually, the remote changes are right because it was pushed before.
+My precious pieces of advice is to copy/paste the remote version in the middle.
+It means, the final file will be the remote one and you only have to merge two files instead of three.
+
+To flag the files with conflicts as resolved, you must make add them to the stagging area and commit.
+There two ways Git can handle this special merge commit depending on the pull strategy: *rebase* or *merge*.
+
+By default the pull strategy is set to merge but you can switch if you add the `--rebase` option.
+With the merge strategy you'll get a merge commit containing your updates which solves the conflict.
+If you choose rebase, your local commit will be updated with the updates.
+Rebase is an automatic task which tries to apply your commit on the top, you must use `rebase --continue` to keep going after a conflict.
+The later is the better in you ask me.
+On another hand, merge commits helps to locate commits which corrects conflicts.
+This is useful if you made a bad merge and remove a bit of your colleague code.
+
+image:todo.jpg[image merge vs rebase]
+
+You can also handle merges with a tool such as Meld and flag the files as resolved automatically.
+This can done by defining a link:https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_external_merge_tools[mergetool in your git configuration].
+When a conflict occurs, type `git mergetool` to make git use your software to review the files.
+After each files, it'll ask if you confirm the merge or not.
+
+Do you know cherry-pick?
+It's a handy command which allows to pick any commit and put it on top of your branch.
+Conflicts can also occurs with cherry-picks but it works the exact same way as rebase.
+When you encounter a conflict, fix it and call `cherry-pick --continue`.
+
+[source=bash]
+----
+$ git cherry-pick COMMIT_SHA1
+----

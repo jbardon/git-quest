@@ -1,0 +1,27 @@
+{
+  "title": "Git Quest",
+  "author": "Jérémy Bardon",
+  "root": "src",
+  "plugins": [
+    "asciidoc-admonition-icons",
+    "asciidoc-include@0.1.8",
+    "back-to-top-button",
+    "collapsible-chapters",
+    "edit-link",
+    "github",
+    "-fontsettings",
+    "-sharing"
+  ],
+  "pluginsConfig": {
+    "edit-link": {
+      "base": "https://github.com/USER/REPO/tree/BRANCH/path/to/book",
+      "label": "Edit This Page"
+    },
+    "github": {
+      "url": "https://github.com/your/repo"
+    }
+  },
+  "styles": {
+    "website": "asciidoctor.css"
+  }
+}

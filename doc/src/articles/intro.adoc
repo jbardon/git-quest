@@ -1,0 +1,72 @@
+= Stop Struggling with Git Every Day
+
+image::img/front.jpg[]
+
+////
+* https://unsplash.com/photos/eA2t5EvcxU4
+ * https://unsplash.com/photos/geNNFqfvw48
+ *  https://unsplash.com/photos/bJhT_8nbUA0
+ * https://unsplash.com/photos/XGXVwS93Ygs
+ * https://unsplash.com/photos/LOHVrTsdvzY
+////
+
+Do you have to use Git every day, but never learn it for real?
+You're in the right place.
+I'll begin from the very beginning and  explain to you why this tool is very important for software developement.
+
+// git-scm c'est le livre mais aussi le site officel
+// tout le monde devrais livre au moins dles 3 premiers chapitres
+To make it short, Git helps to track changes in your code base.
+No need to keep a zip for each version anymore.
+Also working in teams becomes easier.
+That's why a majority of software editors are using Git.
+Usually,  developers don't learn it at school but rather as they go along.
+The result is we often have to stuggle with Git to be able to share our work with our colleagues.
+
+If you visit the link:https://git-scm.com/book/en/v2[official git website], you'll find the Pro Git book.
+I read it and I think explainations are cristal clear.
+You should give it a try, every developers should at least read the three first chapters.
+
+....
+- Réécrire l'histoire: Changer les commit squash et amend, changer message de commit, (règles push --force, reset --hard), revert sur premieère partie en plus ??
+- remettre un fichier à zéro (checkout --)
+- fait n'importe quoi -> distant --hard
+- puul rebase avec changements -> il fallait rebase
+- en vrai le merge c'est pas que des branches mais des pull request avec possiblement des forks
+Règles
+- Ne pas rebase un truc partagé
+- pas reset - hard ou push - force
+ne parle pas de github ou gitlab ni fork/pull request
+____Hall of Fame
+- reflog pour récupérer un commit perdu
+....
+
+== Fast intro for busy people
+
+Let's first understand why you need to use a link:https://en.wikipedia.org/wiki/Version_control[Version Control System (VCS)] in you project.
+Imagine you need to write an article about Vue.js vs React.
+
+You come up with an intermediate version of your `vue-vs-react-1`.
+At this point, a friend of yours will check for typos and you'll keep writing the rest. 
+
+The problem is you end up with two versions of your document : `vue-vs-react-2` and `vue-vs-react-1.5`.
+That's bad, you'll have to review the two versions and make a third up-to-date version out of it.
+Maybe `vue-vs-react-3` or worst you'll still use `vue-vs-react-2`.
+
+....
+https://unsplash.com/photos/o6GEPQXnqMY
+....
+
+It becomes worst if you want to write this article with co-authors.
+Everyone has its own version of the article.
+Regularly, someone have to fetch all version, merge them all in one new version and give it back to the others.
+You end with dozens versions of your article.
+You don't know what each version are for and you get headaches trying to merge regularly.
+
+That's why developers give birth to VCS such as Mercurial and Subversion (SVN).
+Nowadays, Git is widely used across the industry and the most famous VCS.
+We'll only talk about how to use Git here.
+
+For sure, Git will help you to keep clear versions of your work.
+But learn how to use it isn't a clear fast path, the learning curve is steep.
+You'll loose your work and maybe make other lose their work in the process.

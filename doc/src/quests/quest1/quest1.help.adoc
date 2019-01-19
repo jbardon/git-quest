@@ -1,0 +1,136 @@
+include::./index.adoc[]
+
+= Quest #1 - Solution
+
+If you're comfortable with git, check this section only after trying to complete your quest. The instructions with the weapons section may help you to find out what git commands you need. If you already passed {link-main-check}, it's safe you can keep reading.
+
+== Short answer
+
+This is the complete workflow of git commands to complete the quest. You can see it as summary if you're an apprentices.
+
+For heroes, it can help you to compare your solution with mine.
+
+[source, bash]
+----
+$ git add .
+$ git commit -m'Print the message in ASCII art'
+$ git push
+----
+
+After running all the commands in the right order, you can {link-main-check} it should be fine.
+
+The following section solutions explains in depth why you need theses commands. It also includes frequent repository status to help you understand what's going on.
+
+== Step by step solution
+
+=== Step 0 : Initial state
+
+You should get the exact same state of you repository to begin the quest. There is only one file in the *Changes not staged for commit* section. It means you modified `index.js` but not yet saved those change in a commit.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+        modified:   index.js
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+----
+
+WARNING: If you get a different result, don't waste your time and run `git-quest init 1` again.
+
+=== Step 1 : Put all modified files in the staging area
+
+`add` is the commmand to flag modified files. Only flagged files will be included in the next version. Using the git terminology, flag a file means put it in the staging area.
+
+The first parameter for `add` is a file or a directory. Using `.` is a shorcut to select all modified files.
+
+[source]
+----
+$ git add .
+----
+
+`index.js` moved from *Changes not staged for commit* to the *Changes to be committed* section.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+        modified:   index.js
+
+----
+
+=== Step 2 : Create a new version with modified files
+
+`commit` is the command to create a new version of the project. You must provide a message which describes what the changes are about. All files in the staging area will be included in the commit.
+
+[source, bash]
+----
+$ git commit -m'Print the message in ASCII art'
+[master 20a2695] Print the message in ASCII art
+ 1 file changed, 9 insertions(+), 1 deletion(-)
+----
+
+Note: press `Q` to escape the following command
+[source, bash]
+----
+$ git show --name-only
+commit 20a269589d53ade8cf92f0f26515dc4319c52a9a
+Author: jeremy.bardon <jeremy.bardon@>
+Date:   Mon Dec 3 17:00:55 2018 +0100
+
+    Print the message in ASCII art
+
+index.js
+----
+
+There is no more modified files. Modification for `index.js` are already saved in git with the commit. Yet, you're ahead of 'origin/master' by 1 commit. Well, you do a commit but it's not yet send to the server.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+----
+
+=== Step 3 : Send your commit to the server
+
+[source, bash]
+----
+$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 350 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To ~/git-quest/quest1/remote.git
+   d96e8e0..20a2695  master -> master
+
+----
+
+You're synchronised with the server. Also, there are no modified files.
+
+[source, bash]
+----
+$ git status
+On branch master
+Your branch is up to date with 'origin/master'.
+
+nothing to commit, working tree clean
+
+----
+
+NOTE: Congratulations, you completed the quest! Try to check your result {link-main-check}.

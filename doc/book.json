@@ -14,11 +14,11 @@
   ],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/USER/REPO/tree/BRANCH/path/to/book",
+      "base": "https://github.com/jbardon/git-quest/tree/dev/doc/src",
       "label": "Edit This Page"
     },
     "github": {
-      "url": "https://github.com/your/repo"
+      "url": "https://github.com/jbardon/git-quest"
     }
   },
   "styles": {

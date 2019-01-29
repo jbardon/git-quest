@@ -24,3 +24,5 @@
 * Supprimer branche locale et remote
 * Modifs en cours mettre sur branche
 * Commit mauvaise branche crÃ©er nouvelle branche
+
+# utiliser l'extension gh-pages pour déployer

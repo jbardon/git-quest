@@ -70,10 +70,6 @@
     <div class="book-summary">
         
             
-<div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
-</div>
-
             
                 <nav role="navigation">
                 
@@ -345,9 +341,6 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
-<div id="book-search-results">
-    <div class="search-noresults">
-    
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="quest-2---staging-area">Quest #2 - Staging area</h1>
@@ -487,13 +480,13 @@ Then, reset the quest and try to complete it without any help.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ git show --name-only
-commit 9ef08fa86e2dc438d7875d9aa36720afc2d3b9b8 (HEAD -&gt; master) (3)
+commit <span class="hljs-number">9</span>ef08fa86e2dc438d7875d9aa36720afc2d3b9b8 (HEAD -&gt; master) (<span class="hljs-number">3</span>)
 Author: jbardon &lt;bardonjeremy1@gmail.com&gt;
-Date:   Sat Dec 8 16:58:34 2018 +0100
+Date:   Sat Dec <span class="hljs-number">8</span> <span class="hljs-number">16</span>:<span class="hljs-number">58</span>:<span class="hljs-number">34</span> <span class="hljs-number">2018</span> +<span class="hljs-number">0100</span>
 
-    Colorful <span class="hljs-built_in">print</span> message (handles lowercas message) (1)
+    Colorful <span class="hljs-built_in">print</span> message (handles lowercas message) (<span class="hljs-number">1</span>)
 
-colors.js (2)
+colors.js (<span class="hljs-number">2</span>)
 index.js</code></pre>
 </div>
 </div>
@@ -525,22 +518,6 @@ You can compare your solution with mine.</p>
                                 
                                 </section>
                             
-    </div>
-    <div class="search-results">
-        <div class="has-results">
-            
-            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
-            <ul class="search-results-list"></ul>
-            
-        </div>
-        <div class="no-results">
-            
-            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-            
-        </div>
-    </div>
-</div>
-
                         </div>
                     </div>
                 
@@ -564,7 +541,7 @@ You can compare your solution with mine.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Play with staging area","level":"3.2","depth":1,"next":{"title":"Search the mysterious message","level":"3.3","depth":1,"path":"quests/quest3/quest3.main.adoc","ref":"quests/quest3/quest3.main.adoc","articles":[]},"previous":{"title":"Add, commit and push","level":"3.1","depth":1,"path":"quests/quest1/quest1.main.adoc","ref":"quests/quest1/quest1.main.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"quests/quest2/quest2.main.adoc","mtime":"2019-01-03T17:18:19.980Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-04T16:27:19.953Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Play with staging area","level":"3.2","depth":1,"next":{"title":"Search the mysterious message","level":"3.3","depth":1,"path":"quests/quest3/quest3.main.adoc","ref":"quests/quest3/quest3.main.adoc","articles":[]},"previous":{"title":"Add, commit and push","level":"3.1","depth":1,"path":"quests/quest1/quest1.main.adoc","ref":"quests/quest1/quest1.main.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{"maxIndexSize":1000000},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"quests/quest2/quest2.main.adoc","mtime":"2019-01-19T09:14:33.080Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-29T19:57:05.064Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -590,7 +567,7 @@ You can compare your solution with mine.</p>
         
     
         
-        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
         
     
         

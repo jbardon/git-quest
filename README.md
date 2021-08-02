@@ -1,7 +1,11 @@
 # git-quest
 
-> Begin your quest by running `npm install git-quest` and connect on [https://jbardon.github.io/git-quest/](https://jbardon.github.io/git-quest/)
->
+> **⚠ WARNING: This project isn't active**
+> The ways to add new quests isn't robust and scalable enough. Check out [Githug](https://github.com/Gazler/githug) as an alternative with more levels.
+
+
+> Run `npm install git-quest` to get your quest
+> and visit [the website](https://jbardon.github.io/git-quest/) for more details
 
 ### Zero setup git practice
 
@@ -76,11 +80,3 @@ Opens the current quest help in the browser based on current directory.
 
 Options:  
 *  `-q`, `--quest` - Quest id
-
-## License
-
-MIT -> Free de tout
-GPL -> Oblige de mettre au mins GPL pour les autres
-BSD -> A l'air pas trop mal
-Apache
-X11 ISC

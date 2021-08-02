@@ -14,7 +14,7 @@
   ],
   "pluginsConfig": {
     "edit-link": {
-      "base": "https://github.com/jbardon/git-quest/tree/dev/doc/src",
+      "base": "https://github.com/jbardon/git-quest/blob/master/doc",
       "label": "Edit This Page"
     },
     "github": {

@@ -14,6 +14,7 @@
   "main": "src/index.js",
   "scripts": {
     "build:cmd": "npm link",
+    "deploy:cmd": "npm publish",
     "start:doc": "gitbook serve --open",
     "build:doc:asciidoctor": "asciidoctor -D ./_asciidoc ./doc/**/*.adoc",
     "deploy:doc": "gitbook build && gh-pages -d _book"

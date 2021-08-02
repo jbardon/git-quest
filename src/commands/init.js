@@ -1,6 +1,7 @@
 const path = require('path');
 const program = require('commander');
 const QuestFactory = require('../helpers/quest-factory');
+const { exit } = require('process');
 
 class InitCommand {
     constructor() {
@@ -17,7 +18,7 @@ class InitCommand {
 
     exec(questId, directory) {
         if (!directory) {
-            directory = path.join(__dirname, '..');
+            directory = process.cwd();
         }
         // Faire un interceptor git global
         const quest = QuestFactory.get(questId);

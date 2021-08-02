@@ -1,0 +1,33 @@
+{
+  "name": "git-quest",
+  "version": "0.1.0",
+  "description": "Discover git or sharpen your skills through quests",
+  "author": "Jérémy Bardon",
+  "homepage": "https://jbardon.github.io/git-quest",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbardon/git-quest"
+  },
+  "bin": {
+    "git-quest": "./src/bin/git-quest"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "start:doc": "gitbook serve --open",
+    "build:doc:asciidoctor": "asciidoctor -D ./_asciidoc ./doc/**/*.adoc",
+    "deploy:doc": "gitbook build && gh-pages -d _book"
+  },
+  "dependencies": {
+    "colors": "^1.3.3",
+    "commander": "^2.19.0",
+    "loglevel": "^1.6.1",
+    "opn": "^5.4.0",
+    "readline-sync": "^1.4.9",
+    "shelljs": "^0.8.3",
+    "simple-git": "^1.107.0"
+  },
+  "devDependencies": {
+    "gh-pages": "2.0.1",
+    "gitbook-cli": "2.3.2"
+  }
+}

@@ -4,7 +4,7 @@ const { cd, test, rm, mkdir, pwd } = require('shelljs');
 const git = require('simple-git')();
 const colors = require('colors');
 
-const REPOSITORY = 'https://bitbucket.org/jeremy-lr/git-riddle.git';
+const REPOSITORY = 'https://github.com/jbardon/git-quest-src';
 
 class Quest {
     constructor(questId, directory) {
@@ -15,10 +15,9 @@ class Quest {
 
     setup(prepareQuestRepository) {
         console.log(`Setup GitQuest #${this.questId}.....`);
-
         let questRepositoryDirectory = path.join(this.questDirectory, `quest${this.questId}`);
-
         this.createQuestDirectory();
+
         this.fetchQuestContent().exec(() =>
             this.createQuestRepository().exec(() => {
                 log.debug('Prepare quest repository');

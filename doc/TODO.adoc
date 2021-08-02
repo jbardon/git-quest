@@ -24,8 +24,3 @@
 * Supprimer branche locale et remote
 * Modifs en cours mettre sur branche
 * Commit mauvaise branche crÃ©er nouvelle branche
-
-# utiliser l'extension gh-pages pour déployer
-https://github.com/amitmerchant1990/electron-markdownify (menu)
-https://github.com/nhnent/tui.editor (emoji)
-https://github.com/shama/gaze (lien npm)

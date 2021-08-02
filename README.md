@@ -1,7 +1,7 @@
 # git-quest
 
-> Determine whether a moving axis-aligned bounding box (AABB) collides with
-> other AABBs.
+> Begin your quest by running `npm install git-quest` and connect on [https://jbardon.github.io/git-quest/](https://jbardon.github.io/git-quest/)
+>
 
 ### Zero setup git practice
 

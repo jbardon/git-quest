@@ -13,7 +13,6 @@ No need to setup a repository, the command-line tool can do it for you. It comes
 
 ![Website](website.png)
 
-## Features
 * Automatic environment setup
 * Many quests for any level
 * Detailed step by step help
@@ -84,3 +83,4 @@ MIT -> Free de tout
 GPL -> Oblige de mettre au mins GPL pour les autres
 BSD -> A l'air pas trop mal
 Apache
+X11 ISC

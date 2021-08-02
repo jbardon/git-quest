@@ -13,6 +13,7 @@
   },
   "main": "src/index.js",
   "scripts": {
+    "build:cmd": "npm link",
     "start:doc": "gitbook serve --open",
     "build:doc:asciidoctor": "asciidoctor -D ./_asciidoc ./doc/**/*.adoc",
     "deploy:doc": "gitbook build && gh-pages -d _book"
@@ -28,6 +29,6 @@
   },
   "devDependencies": {
     "gh-pages": "2.0.1",
-    "gitbook-cli": "2.3.2"
+    "gitbook-cli": "2.3.0"
   }
 }

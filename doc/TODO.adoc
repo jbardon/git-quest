@@ -2,8 +2,8 @@
 
 == Simple workflow
 * Add, commit, push
-* Commit un fichier sur deux modifiÃ©s
-* Commit un nouveau fichier pas trackÃ©
+* Commit un fichier sur deux modifiés
+* Commit un nouveau fichier pas tracké
 
 == Explore project versions
 * Log: combien de commits quels fichiers, historique d'une fichier

@@ -70,6 +70,10 @@
     <div class="book-summary">
         
             
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
             
                 <nav role="navigation">
                 
@@ -341,6 +345,9 @@
                     <div class="page-wrapper" tabindex="-1" role="main">
                         <div class="page-inner">
                             
+<div id="book-search-results">
+    <div class="search-noresults">
+    
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="quest-1---solution">Quest #1 - Solution</h1>
@@ -446,8 +453,8 @@ Changes to be committed:
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ git commit -m<span class="hljs-string">&apos;Print the message in ASCII art&apos;</span>
-[master <span class="hljs-number">20</span>a2695] Print the message <span class="hljs-keyword">in</span> ASCII art
- <span class="hljs-number">1</span> file changed, <span class="hljs-number">9</span> insertions(+), <span class="hljs-number">1</span> deletion(-)</code></pre>
+[master 20a2695] Print the message <span class="hljs-keyword">in</span> ASCII art
+ 1 file changed, 9 insertions(+), 1 deletion(-)</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -456,9 +463,9 @@ Changes to be committed:
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ git show --name-only
-commit <span class="hljs-number">20</span>a269589d53ade8cf92f0f26515dc4319c52a9a
+commit 20a269589d53ade8cf92f0f26515dc4319c52a9a
 Author: jeremy.bardon &lt;jeremy.bardon@&gt;
-Date:   Mon Dec <span class="hljs-number">3</span> <span class="hljs-number">17</span>:<span class="hljs-number">00</span>:<span class="hljs-number">55</span> <span class="hljs-number">2018</span> +<span class="hljs-number">0100</span>
+Date:   Mon Dec 3 17:00:55 2018 +0100
 
     Print the message <span class="hljs-keyword">in</span> ASCII art
 
@@ -472,7 +479,7 @@ index.js</code></pre>
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ git status
 On branch master
-Your branch is ahead of <span class="hljs-string">&apos;origin/master&apos;</span> by <span class="hljs-number">1</span> commit.
+Your branch is ahead of <span class="hljs-string">&apos;origin/master&apos;</span> by 1 commit.
   (use <span class="hljs-string">&quot;git push&quot;</span> to publish your <span class="hljs-built_in">local</span> commits)
 
 nothing to commit, working tree clean</code></pre>
@@ -484,13 +491,13 @@ nothing to commit, working tree clean</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">$ git push
-Counting objects: <span class="hljs-number">3</span>, done.
-Delta compression using up to <span class="hljs-number">4</span> threads.
-Compressing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">2</span>/<span class="hljs-number">2</span>), done.
-Writing objects: <span class="hljs-number">100</span>% (<span class="hljs-number">3</span>/<span class="hljs-number">3</span>), <span class="hljs-number">350</span> bytes | <span class="hljs-number">0</span> bytes/s, done.
-Total <span class="hljs-number">3</span> (delta <span class="hljs-number">0</span>), reused <span class="hljs-number">0</span> (delta <span class="hljs-number">0</span>)
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 350 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
 To ~/git-quest/quest1/remote.git
-   d96e8e0..<span class="hljs-number">20</span>a2695  master -&gt; master</code></pre>
+   d96e8e0..20a2695  master -&gt; master</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -523,6 +530,22 @@ Congratulations, you completed the quest! Try to check your result <a href="ques
                                 
                                 </section>
                             
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
                         </div>
                     </div>
                 
@@ -546,7 +569,7 @@ Congratulations, you completed the quest! Try to check your result <a href="ques
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Help","level":"4.2","depth":1,"next":{"title":"Help","level":"4.3","depth":1,"path":"quests/quest2/quest2.help.adoc","ref":"quests/quest2/quest2.help.adoc","articles":[]},"previous":{"title":"Get help for your Quest","level":"4.1","depth":1,"path":"others/quests-help.adoc","ref":"others/quests-help.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"src","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/your/repo"},"asciidoc-admonition-icons":{},"search":{"maxIndexSize":1000000},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/USER/REPO/tree/BRANCH/path/to/book"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"quests/quest1/quest1.help.adoc","mtime":"2019-01-19T09:14:31.760Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2019-01-29T19:57:05.064Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Help","level":"4.2","depth":1,"next":{"title":"Help","level":"4.3","depth":1,"path":"quests/quest2/quest2.help.adoc","ref":"quests/quest2/quest2.help.adoc","articles":[]},"previous":{"title":"Get help for your Quest","level":"4.1","depth":1,"path":"others/quests-help.adoc","ref":"others/quests-help.adoc","articles":[]},"dir":"ltr"},"config":{"plugins":["asciidoc-admonition-icons","asciidoc-include@0.1.8","back-to-top-button","collapsible-chapters","edit-link","github","-fontsettings","-sharing"],"root":"./doc","styles":{"website":"asciidoctor.css"},"pluginsConfig":{"asciidoc-include":{"syntax":"asciidoc"},"github":{"url":"https://github.com/jbardon/git-quest"},"asciidoc-admonition-icons":{},"search":{},"collapsible-chapters":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"highlight":{},"back-to-top-button":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/jbardon/git-quest/tree/dev/doc/src"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Jérémy Bardon","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Git Quest","gitbook":"*"},"file":{"path":"quests/quest1/quest1.help.adoc","mtime":"2021-08-02T16:39:49.000Z","type":"asciidoc"},"gitbook":{"version":"3.2.3","time":"2021-08-02T20:26:18.397Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
@@ -572,7 +595,7 @@ Congratulations, you completed the quest! Try to check your result <a href="ques
         
     
         
-        <script src="../../gitbook/gitbook-plugin-search/lunr.min.js"></script>
+        <script src="../../gitbook/gitbook-plugin-search/search-engine.js"></script>
         
     
         

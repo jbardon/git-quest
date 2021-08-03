@@ -4,7 +4,7 @@
 > The ways to add new quests isn't robust and scalable enough. Check out [Githug](https://github.com/Gazler/githug) as an alternative with more levels.
 
 
-> Run `npm install git-quest` to get your quest
+> Run `npx git-quest list` to pick your quest
 > and visit [the website](https://jbardon.github.io/git-quest/) for more details
 
 ### Zero setup git practice
